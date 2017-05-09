@@ -17,10 +17,24 @@
         margin: 0 auto;
       }
     </style>
+    <script>
+    function search() {
+      var searchbox=document.searchbox;
+      var ddgurl="https://duckduckgo.com/?q="
+      var searchurl=ddg + escape(searchbox.ddgsearchtext.value);
+      window.location.href=searchurl;
+      return false;
+     }
+    </script>
   </head>
   <body>
     <div class="center">
       <p><img src="retropage.png" /></p>
+      <h2><strong><p>DuckDuckGo Search:</p></strong></h2>
+      <form name="searchbox" onSubmit="return search();">
+      <input type="text" name="ddgsearchtext">
+      <input type="submit" name="SubmitSearch" value="Search">
+      </form>
     </div>
   </body>
 </html>
