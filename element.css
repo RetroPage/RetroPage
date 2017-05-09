@@ -677,7 +677,7 @@
 .element input:not([type]), .element input[type=password], .element input[type=email], .element input[type=url], .element input[type=date], .element input[type=month], .element input[type=time], .element input[type=datetime], .element input[type=datetime-local], .element input[type=week], .element input[type=tel], .element input[type=color], .element input[type=number], .element input[type=search], .element input[type=text], .element select, .element textarea {
   display: block;
   margin-bottom: 10px;
-  padding: .3em;
+  padding: .5em 1em;
   display: inline-block;
   border: 1px solid #ccc;
   box-shadow: inset 0 1px 3px #ddd;
