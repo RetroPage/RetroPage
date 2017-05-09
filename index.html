@@ -21,7 +21,7 @@
     function search() {
       var searchbox=document.searchbox;
       var ddgurl="https://duckduckgo.com/?q="
-      var searchurl=ddg + escape(searchbox.ddgsearchtext.value);
+      var searchurl=ddgurl + escape(searchbox.ddgsearchtext.value);
       window.location.href=searchurl;
       return false;
      }
