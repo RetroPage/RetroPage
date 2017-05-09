@@ -702,8 +702,7 @@
 .element button {
   background-color: #0078e7;
   color: #fff;
-  margin-top: 10px;
-  margin-bottom: 15px;
+  padding: .5em 1em;
   text-decoration: none;
   border-radius: 2px;
   border: transparent;
