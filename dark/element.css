@@ -442,6 +442,7 @@
   margin-bottom: 16px;
   font-weight: 600;
   line-height: 1.25;
+  color: #FFFFFF;
 }
 
 .element h1 {
@@ -458,6 +459,7 @@
 
 .element h3 {
   font-size: 1.25em;
+  color: #FFFFFF;
 }
 
 .element h4 {
