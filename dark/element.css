@@ -727,7 +727,7 @@
 }
 
 .element footer {
-  color: #636c72!important;
+  color: #FFFFFF!important;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -735,6 +735,7 @@
   padding-top: 1rem;
   background-color: #efefef;
   text-align: center;
+  color: #000000;
 }
 
 .element html {
