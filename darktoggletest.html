@@ -35,24 +35,21 @@
       return false;
      }
     function toggletheme() {
-      if (theme === 0) {
-        var link = document.createElement('link');
-        link.setAttribute('rel', 'stylesheet');
-        link.setAttribute('type', 'text/css');
-        link.setAttribute('href', 'dark.css');
-        link.setAttribute('class', 'darktheme');
-        link.setAttribute('disabled', 'false');
-        document.getElementsByTagName('head')[0].appendChild(link);
-        var darkcssfile = document.getElementsByClassName("darktheme");
-        document.cookie = "theme=1";
-        var theme = document.cookie.indexOf('theme');
-      } else {
-        var darkcssfile = document.getElementsByClassName("darktheme");
-        darkcssfile.setAttribute('disabled', 'true');
-        document.cookie = "theme=0";
-        theme = document.cookie.indexOf('theme');
+       if (theme == 0) {
+         var link = document.createElement('link');
+         link.setAttribute('rel', 'stylesheet');
+         link.setAttribute('type', 'text/css');
+         link.setAttribute('href', 'dark.css');
+         link.setAttribute('class', 'darktheme');
+         var darkcss = document.getElementsByClassName("darktheme");
+         document.getElementsByTagName('head')[0].appendChild(link);
+         document.cookie = "theme=1";
+       } else if (theme == 1) {
+         var darkcss = document.getElementsByClassName("darktheme");
+         darkcss.disabled=true;
+         document.cookie = "theme=0";
        }
-     }
+      }
     </script>
   </head>
   <body>
