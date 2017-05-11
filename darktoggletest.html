@@ -35,22 +35,22 @@
       return false;
      }
     function toggletheme() {
-      if (theme == 0) {
-        var link = document.createElement('link')
-        link.setAttribute('rel', 'stylesheet')
-        link.setAttribute('type', 'text/css')
-        link.setAttribute('href', 'dark.css')
-        link.setAttribute('class', 'darktheme')
-        document.getElementsByTagName('head')[0].appendChild(link)
+      if (theme === 0) {
+        var link = document.createElement('link');
+        link.setAttribute('rel', 'stylesheet');
+        link.setAttribute('type', 'text/css');
+        link.setAttribute('href', 'dark.css');
+        link.setAttribute('class', 'darktheme');
+        document.getElementsByTagName('head')[0].appendChild(link);
         document.getElementsByClassName("darktheme").disabled=false;
         document.cookie = "theme=1";
         var theme = document.cookie.indexOf('theme');
       } else if (theme == 1) {
         document.getElementsByClassName("darktheme").disabled=true;
         document.cookie = "theme=0";
-        var theme = document.cookie.indexOf('theme');
-      }
-    }
+        theme = document.cookie.indexOf('theme');
+       }
+     }
     </script>
   </head>
   <body>
