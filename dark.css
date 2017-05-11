@@ -1,0 +1,9 @@
+.element body {
+  background-color: #000000 !important;
+}
+.element p, .element h1, .element h2, .element h3 {
+  color: #FFFFFF !important;
+}
+.element footer {
+  background-color: #282828 !important;
+}
