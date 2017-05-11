@@ -55,6 +55,17 @@
          document.getElementById('darktheme').remove();
          document.cookie = "theme=0";
        }
+      if(theme%2==0)
+        var link = document.createElement('link');
+         link.setAttribute('rel', 'stylesheet');
+         link.setAttribute('type', 'text/css');
+         link.setAttribute('href', 'dark.css');
+         link.setAttribute('id', 'darktheme');
+         document.getElementsByTagName('head')[0].appendChild(link);
+         document.cookie = "theme=1";
+      else
+      document.getElementById('darktheme').remove();
+      theme++;
       }
     </script>
   </head>
