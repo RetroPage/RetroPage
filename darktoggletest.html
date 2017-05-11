@@ -23,8 +23,10 @@
     </style>
     <script>
     if (document.cookie.indexOf('theme') == -1 ) {
-     alert("Cookie does not exist.")
+     document.cookie = "theme=0";
+     console.log("No cookie was found, so it was created.")
     }
+    var theme = document.cookie.indexOf('theme');
     function search() {
       var searchbox=document.searchbox;
       var ddgurl="https://duckduckgo.com/?q="
