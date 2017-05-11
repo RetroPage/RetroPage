@@ -41,6 +41,7 @@
         link.setAttribute('type', 'text/css')
         link.setAttribute('href', 'dark.css')
         link.setAttribute('class', 'darktheme')
+        document.getElementsByTagName('head')[0].appendChild(link)
         var darkcss = document.getElementsByClassName("darktheme");
         darkcss.disabled=false;
         document.cookie = "theme=1";
