@@ -26,10 +26,8 @@
       var searchbox=document.searchbox;
       var ddgurl="https://duckduckgo.com/?q="
       var searchurl=ddgurl + escape(searchbox.ddgsearchtext.value);
-      if searchbox.ddgsearchtext.value !="" {
-        window.location.href=searchurl;
-        return false;
-      }
+      window.location.href=searchurl;
+      return false;
      }
     </script>
   </head>
