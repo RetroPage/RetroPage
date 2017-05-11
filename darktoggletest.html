@@ -22,8 +22,8 @@
     
     </style>
     <script>
-    if (document.cookie.indexOf('theme') > -1 ) {
-     alert("No cookie found")
+    if (document.cookie.indexOf('theme') == -1 ) {
+     alert("Cookie does not exist.")
     }
     function search() {
       var searchbox=document.searchbox;
