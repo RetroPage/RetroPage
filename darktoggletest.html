@@ -41,12 +41,14 @@
         link.setAttribute('type', 'text/css');
         link.setAttribute('href', 'dark.css');
         link.setAttribute('class', 'darktheme');
+        link.setAttribute('disabled', 'false');
         document.getElementsByTagName('head')[0].appendChild(link);
-        document.getElementsByClassName("darktheme").disabled=false;
+        var darkcssfile = document.getElementsByClassName("darktheme");
         document.cookie = "theme=1";
         var theme = document.cookie.indexOf('theme');
-      } else if (theme == 1) {
-        document.getElementsByClassName("darktheme").disabled=true;
+      } else {
+        var darkcssfile = document.getElementsByClassName("darktheme");
+        darkcssfile.setAttribute('disabled', 'true');
         document.cookie = "theme=0";
         theme = document.cookie.indexOf('theme');
        }
