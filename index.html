@@ -24,8 +24,8 @@
     <script>
     function search() {
       var searchbox=document.searchbox;
-      var ddgurl="https://duckduckgo.com/?q="
-      var searchurl=ddgurl + escape(searchbox.ddgsearchtext.value);
+      var gurl="https://encrypted.google.com/#q="
+      var searchurl=gurl + escape(searchbox.googsearchtext.value);
       window.location.href=searchurl;
       return false;
      }
@@ -61,7 +61,7 @@
       <div>
         <h3>DuckDuckGo Search:</h3>
         <form name="searchbox" onSubmit="return search();">
-        <input name="ddgsearchtext" type="text">
+        <input name="googsearchtext" type="text">
         <button value="Search" name="SubmitSearch">Submit</button>
         </form>
       </div>
