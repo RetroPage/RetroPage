@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en" class="element">
   <head>
     <meta charset="utf-8">
@@ -52,12 +52,21 @@
     <script>
     function search() {
       var searchbox=document.searchbox;
-      var gurl="https://encrypted.google.com/#q="
+      var gurl="https://encrypted.google.com/?q="
       var searchurl=gurl + escape(searchbox.googsearchtext.value);
       window.location.href=searchurl;
       return false;
      }
     </script>
+<script>
+function ducksearch() {
+      var dsearchbox=document.dsearchbox;
+      var durl="https://duckduckgo.com/?q="
+      var dsearchurl=durl + escape(dsearchbox.ducksearchtext.value);
+      window.location.href=dsearchurl;
+      return false;
+     }
+</script>
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
@@ -89,6 +98,13 @@
         <h3>Google Search:</h3>
         <form name="searchbox" onSubmit="return search();">
         <input name="googsearchtext" type="text">
+        <button value="Search" name="SubmitSearch">Submit</button>
+        </form>
+      </div>
+ <div>
+        <h3>Duck Duck Go Search:</h3>
+         <form name="dsearchbox" onSubmit="return ducksearch();">
+        <input name="ducksearchtext" type="text">
         <button value="Search" name="SubmitSearch">Submit</button>
         </form>
       </div>
