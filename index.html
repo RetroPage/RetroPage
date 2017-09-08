@@ -16,11 +16,17 @@
         margin-right: auto;
         margin: 0 auto;
       }
-      .themes {
-        text-align: right;
+      .options {
+        float: right;
       }
-
     </style>
+    <noscript>
+      <style>
+        .options, .search {
+          display: none;
+        }
+      </style>
+    </noscript>
     <script>
     /*
     @licstart  The following is the entire license notice for the
@@ -50,13 +56,33 @@
     */
     </script>
     <script>
-    function search() {
-      var searchbox=document.searchbox;
-      var gurl="https://encrypted.google.com/#q="
-      var searchurl=gurl + escape(searchbox.googsearchtext.value);
-      window.location.href=searchurl;
-      return false;
-     }
+      function search() {
+        var a = document.getElementById("searchoption");
+        var selectedsearch = a.options[a.selectedIndex].value;
+        var searchbox=document.searchbox;
+        var googurl="https://encrypted.google.com/#q="
+        var bingurl="https://www.bing.com/search?q="
+        var yurl="https://search.yahoo.com/search?p="
+        var ddgurl="https://duckduckgo.com/?q="
+        localStorage.setItem("selectedengine", selectedsearch);
+        if (selectedsearch == "google") {
+          searchurl=googurl + escape(searchbox.searchtext.value);
+          window.location.href=searchurl;
+          return false;
+        } else if (selectedsearch == "bing") {
+          searchurl=bingurl + escape(searchbox.searchtext.value);
+          window.location.href=searchurl;
+          return false;
+        } else if (selectedsearch == "yahoo") {
+          searchurl=yurl + escape(searchbox.searchtext.value);
+          window.location.href=searchurl;
+          return false;
+        } else if (selectedsearch == "ddg") {
+          searchurl=ddgurl + escape(searchbox.searchtext.value);
+          window.location.href=searchurl;
+          return false;
+        }
+       }
     </script>
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
@@ -80,16 +106,21 @@
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
   </head>
   <body>
-    <div class="themes">
+    <div class="options">
       <p>Light | <a href="/dark">Dark</a></p>
+      <select id="searchoption">
+        <option value="google">Google</option>
+        <option value="bing">Bing</option>
+        <option value="yahoo">Yahoo</option>
+        <option value="ddg">DuckDuckGo</option>
+      </select>
     </div>
     <div class="center">
       <p><img src="/retropage.png" /></p>
-      <div>
-        <h3>Google Search:</h3>
+      <div class="search">
         <form name="searchbox" onSubmit="return search();">
-        <input name="googsearchtext" type="text">
-        <button value="Search" name="SubmitSearch">Submit</button>
+        <input name="searchtext" type="text">
+        <button value="Search" name="SubmitSearch">Search</button>
         </form>
       </div>
     </div>
@@ -230,5 +261,13 @@
     <footer>
       <p>&copy; <a href="https://ravengergaming.net">Ravenger Gaming 2017.</a> Licensed under the MIT License. <a href="https://github.com/RavengerGaming/RetroPage">Source Code</a></p>
     </footer>
+    <script>
+      if (localStorage.getItem("selectedengine") != null) {
+        var a = document.getElementById("searchoption");
+        a.value = localStorage.getItem('selectedengine');
+      } else {
+        localStorage.setItem("selectedengine", "google");
+      }
+    </script>
   </body>
 </html>
