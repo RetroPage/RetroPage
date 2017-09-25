@@ -20,11 +20,17 @@
       .options {
         float: right;
       }
+      #oldthemeoptions {
+        visibility: hidden;
+      }
     </style>
     <noscript>
       <style>
         #searchoption, .search, #darktoggle, #searchoption  {
           display: none;
+        }
+        #oldthemeoptions {
+          visibility: visible!important;
         }
       </style>
     </noscript>
@@ -109,6 +115,7 @@
   </head>
   <body>
     <div class="options">
+      <p id="oldthemeoptions">Light | <a href="/dark">Dark</a></p>
       <button type="button" id="darktoggle" onclick="toggledark()">Toggle Dark Mode</button>
       <select id="searchoption">
         <option value="google">Google</option>
