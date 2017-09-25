@@ -278,21 +278,26 @@
         localStorage.setItem("selectedengine", "google");
       }
       
-      if (localStorage.getItem("darkmodeon") != null) {
-        var darkstatus = localStorage.getItem("darkmodeon");
-          if (darkstatus = "1") {
-            $('link[title=darktheme]')[0].disabled=false;
-          }
+      var darkstatus = localStorage.getItem("darkmodeon");
+      
+      if (darkstatus == 0) {
+        $('link[title=darktheme]')[0].disabled=true;
+      } else if (darkstatus == 1) {
+        $('link[title=darktheme]')[0].disabled=false;
       } else {
+        $('link[title=darktheme]')[0].disabled=true;
         localStorage.setItem("darkmodeon", "0");
-        var darkstatus = 0;
+        darkstatus = 0;
       }
+      
       function toggledark() {
         if (darkstatus == 0) {
           darkstatus = 1;
+          localStorage.setItem("darkmodeon", "1");
           $('link[title=darktheme]')[0].disabled=false;
         } else if (darkstatus = 1) {
           darkstatus = 0;
+          localStorage.setItem("darkmodeon", "0");
           $('link[title=darktheme]')[0].disabled=true;
         }
       }
