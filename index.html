@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>RetroPage</title>
     <link href="element.css" rel="stylesheet">
+    <link rel="stylesheet" href="dark.css" type="text/css" title="darktheme" disabled="true" />
     <style>
       .center {
         text-align: center;
@@ -22,11 +23,12 @@
     </style>
     <noscript>
       <style>
-        #searchoption, .search {
+        #searchoption, .search, .options {
           display: none;
         }
       </style>
     </noscript>
+    <script src="jquery-3.2.1.min.js"></script>
     <script>
     /*
     @licstart  The following is the entire license notice for the
@@ -107,7 +109,7 @@
   </head>
   <body>
     <div class="options">
-      <p>Light | <a href="/dark">Dark</a></p>
+      <button type="button" id="darktoggle" onclick="toggledark()">Toggle Dark Mode</button>
       <select id="searchoption">
         <option value="google">Google</option>
         <option value="bing">Bing</option>
@@ -267,6 +269,25 @@
         a.value = localStorage.getItem('selectedengine');
       } else {
         localStorage.setItem("selectedengine", "google");
+      }
+      
+      if (localStorage.getItem("darkmodeon") != null) {
+        var darkstatus = localStorage.getItem("darkmodeon");
+          if (darkstatus = "1") {
+            $('link[title=darktheme]')[0].disabled=false;
+          }
+      } else {
+        localStorage.setItem("darkmodeon", "0");
+        var darkstatus = 0;
+      }
+      function toggledark() {
+        if (darkstatus == 0) {
+          darkstatus = 1;
+          $('link[title=darktheme]')[0].disabled=false;
+        } else if (darkstatus = 1) {
+          darkstatus = 0;
+          $('link[title=darktheme]')[0].disabled=true;
+        }
       }
     </script>
   </body>
