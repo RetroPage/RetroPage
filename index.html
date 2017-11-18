@@ -7,35 +7,38 @@
     <meta name="description" content="A lightweight homepage to quickly get you where you need to go.">
     <title>RetroPage</title>
     <link href="element.css" rel="stylesheet">
-    <link rel="stylesheet" href="dark.css" type="text/css" title="darktheme" disabled="true" />
+    <link rel="stylesheet" href="retropage.css" type="text/css" media="none" onload="if(media!='all')media='all'" />
+    <link rel="stylesheet" href="dark.css" type="text/css" title="darktheme" media="none" onload="if(media!='all')media='all'" disabled="true" />
+    <noscript>
+      <meta http-equiv="refresh" content="0; url=/noscript" />
+    </noscript>
     <style>
-      .center {
-        text-align: center;
-        margin: 0 auto;
-      }
-      .center > div, .center > {
-        margin-left: auto;
-        margin-right: auto;
-        margin: 0 auto;
-      }
-      .options {
-        float: right;
-      }
-      #oldthemeoptions {
-        visibility: hidden;
+      .modal {
+       display: none;
       }
     </style>
-    <noscript>
-      <style>
-        #searchoption, .search, #darktoggle, #searchoption  {
-          display: none;
-        }
-        #oldthemeoptions {
-          visibility: visible!important;
-        }
-      </style>
-    </noscript>
-    <script src="jquery-3.2.1.min.js"></script>
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
+    <script src="zepto.min.js" async></script>
+    <script src="retropage.js" async></script>
     <script>
     /*
     @licstart  The following is the entire license notice for the
@@ -64,244 +67,290 @@
     for the JavaScript code in this page.
     */
     </script>
-    <script>
-      function search() {
-        var a = document.getElementById("searchoption");
-        var selectedsearch = a.options[a.selectedIndex].value;
-        var searchbox=document.searchbox;
-        var googurl="https://encrypted.google.com/#q="
-        var bingurl="https://www.bing.com/search?q="
-        var yurl="https://search.yahoo.com/search?p="
-        var ddgurl="https://duckduckgo.com/?q="
-        localStorage.setItem("selectedengine", selectedsearch);
-        if (selectedsearch == "google") {
-          searchurl=googurl + escape(searchbox.searchtext.value);
-          window.location.href=searchurl;
-          return false;
-        } else if (selectedsearch == "bing") {
-          searchurl=bingurl + escape(searchbox.searchtext.value);
-          window.location.href=searchurl;
-          return false;
-        } else if (selectedsearch == "yahoo") {
-          searchurl=yurl + escape(searchbox.searchtext.value);
-          window.location.href=searchurl;
-          return false;
-        } else if (selectedsearch == "ddg") {
-          searchurl=ddgurl + escape(searchbox.searchtext.value);
-          window.location.href=searchurl;
-          return false;
-        }
-       }
-    </script>
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="favicon-128.png" sizes="128x128" />
-    <meta name="application-name" content="&nbsp;"/>
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
   </head>
   <body>
-    <div class="options">
-      <p id="oldthemeoptions">Light | <a href="/dark">Dark</a></p>
-      <button type="button" id="darktoggle" onclick="toggledark()">Toggle Dark Mode</button>
-      <select id="searchoption">
-        <option value="google">Google</option>
-        <option value="bing">Bing</option>
-        <option value="yahoo">Yahoo</option>
-        <option value="ddg">DuckDuckGo</option>
-      </select>
-    </div>
-    <div class="center">
-      <p><img src="/retropage.png" /></p>
-      <div class="search">
-        <form name="searchbox" onSubmit="return search();">
-        <input name="searchtext" type="text">
-        <button value="Search" name="SubmitSearch">Search</button>
-        </form>
+  <div class="modal" id="cssmodal">
+      <div class="modal-box">
+        <span class="modal-close" id="cssmodalclose">&times;</span>
+        <div class="modal-content">
+          <h2 class="modal-header">Custom CSS</h2>
+          <p>Here you can apply your own custom CSS to RetroPage, which allows you to customize RetroPage's styling. This will disable dark mode if it's on. Copy/Pasting CSS from others could be a potental privacy risk, so only use CSS you trust! You can visit <a href="https://www.w3schools.com/css/">this page</a> for information on writing CSS.</p>
+          <form name="customcss" id="customcss">
+            <textarea name="customcssinput" id="customcssinput" rows="10" wrap="hard" placeholder="Write your CSS here."></textarea>
+            <p></p>
+            <button id="csssubmit" onclick="return false()" class="button-submit">Submit</button>
+            <button id="cssclear" onclick="return false()" class="button-clear">Clear</button>
+            </textarea>
+          </form>
+        </div>
       </div>
+  </div>
+  <div class="modal" id="jsmodal">
+      <div class="modal-box">
+        <span class="modal-close" id="jsmodalclose">&times;</span>
+        <div class="modal-content">
+          <h2 class="modal-header">Custom JavaScript</h2>
+          <p>Here you can write your own custom JavaScript to be used with RetroPage. <span class="red"><strong>WARNING: </strong>This can pose a potential security risk if you're copy/pasting code from others, so only run JavaScript you trust.</span> If something goes wrong you can reset RetroPage <a href="/reset">here.</a></p>
+          <form name="customjs" id="customjs">
+            <textarea name="customjsinput" id="customjsinput" rows="10" wrap="hard" placeholder="Write your JavaScript here."></textarea>
+            <p></p>
+            <button id="jssubmit" onclick="return false()" class="button-submit">Submit</button>
+            <button id="jsclear" class="button-clear">Clear</button>
+            </textarea>
+          </form>
+        </div>
+      </div>
+  </div>
+  <div class="modal" id="logomodal">
+      <div class="modal-box">
+        <span class="modal-close" id="logomodalclose">&times;</span>
+        <div class="modal-content">
+          <h2 class="modal-header">Custom Logo</h2>
+          <p>Here you can apply your own logo in place of the RetroPage one. Only direct image links will work. Recommended image host: <a href="https://mixtape.moe/" target="_blank" rel="noopener noreferrer">MixTape.moe</a></p>
+          <p class="modal-error" id="logourlnotvalid">ERROR: Submitted URL is not valid. Please submit a valid URL.</p>
+          <form name="customlogo" id="customlogo">
+            <input name="searchbox" id="logourl" wrap="hard" placeholder="Logo URL (Direct Links)"></input>
+            <p></p>
+            <button id="logosubmit" onclick="return false()" class="button-submit">Submit</button>
+            <button id="logoclear" onclick="return false()" class="button-clear">Clear</button>
+            </textarea>
+          </form>
+        </div>
+      </div>
+  </div>
+  <div class="modal" id="searchmodal">
+      <div class="modal-box">
+        <span class="modal-close" id="searchmodalclose">&times;</span>
+        <div class="modal-content">
+          <h2 class="modal-header">Custom Search Engine</h2>
+          <p>Here you can add your own search engine in place of the default ones. </p>
+          <p class="modal-error" id="csurlnotvalid">ERROR: The URL is invalid. Please enter a valid URL.</p>
+          <form name="customsearch" id="customsearch">
+            <input name="csname" id="searchname" wrap="hard" placeholder="Search Engine Name" required></input>
+            <p></p>
+            <input name="csurl" id="searchurl" wrap="hard" placeholder="Search URL" required></input>
+            <p></p>
+            <button id="customsearchsubmit" onclick="return false()" class="button-submit">Submit</button>
+            <button id="customsearchclear" onclick="return false()" class="button-clear">Clear</button>
+            </textarea>
+          </form>
+        </div>
+      </div>
+  </div>
+  <div class="modal" id="kbdmodal">
+      <div class="modal-box" id="kbdmodal-box">
+        <span class="modal-close" id="kbdmodalclose">&times;</span>
+        <div class="modal-content" id="kbdmodal-content">
+          <h2 class="modal-header">Keyboard Shortcuts</h2>
+          <p>You can use these keyboard shortcuts to do things faster.</p>
+          <div id="kbd-other">
+            <grid-row>
+              <grid-col>
+                <p><span class="kbd">CTRL + ALT + '</span> - Toggle Dark Mode</p>
+                <p><span class="kbd">CTRL + ALT + ;</span> - Custom CSS</p>
+                <p><span class="kbd">CTRL + ALT + l</span> - Custom Logo</p>
+                <p><span class="kbd">CTRL + ALT + k</span> - Custom Javascript</p>
+              </grid-col>
+              <grid-col>
+                <p><span class="kbd">CTRL + ALT + j</span> - Set Search Engine</p>
+                <p><span class="kbd">CTRL + ALT + r</span> - Reset RetroPage</p>
+                <p><span class="kbd">CTRL + ALT + s</span> - Show Shortcuts</p>
+                <p><span class="kbd">CTRL + ALT + x</span> - Close Menu</p>
+              </grid-col>
+            </grid-row>
+          </div>
+          <div id="kbd-mac">
+            <grid-row>
+              <grid-col>
+                <p><span class="kbd">Control ⌃ + &#x2325; + '</span> - Toggle Dark Mode</p>
+                <p><span class="kbd">Control ⌃ + &#x2325; + ;</span> - Custom CSS</p>
+                <p><span class="kbd">Control ⌃ + &#x2325; + l</span> - Custom Logo</p>
+                <p><span class="kbd">Control ⌃ + &#x2325; + k</span> - Custom JavaScript</p>
+              </grid-col>
+              <grid-col>
+                <p><span class="kbd">Control ⌃ + &#x2325; + j</span> - Set Search Engine</p>
+                <p><span class="kbd">Control ⌃ + &#x2325; + r</span> - Reset RetroPage</p>
+                <p><span class="kbd">Control ⌃ + &#x2325; + s</span> - Show Shortcuts</p>
+                <p><span class="kbd">Control ⌃ + &#x2325; + x</span> - Close Menu</p>
+              </grid-col>
+            </grid-row>
+          </div>
+        </div>
+      </div>
+  </div>
+      <div class="options">
+        <div class="siteoptions">
+          <svg id="optionsbtn" width="24" height="24" viewBox="0 0 24 24"><path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" /></svg>
+            <div id="options-box">
+              <div id="options-content">
+                <a id="darktoggle">Toggle Dark Mode</a>
+                <span class="option-dropdown">
+                  <select id="searchoption">
+                    <option value="google">Google</option>
+                    <option value="bing">Bing</option>
+                    <option value="yahoo">Yahoo</option>
+                    <option value="ddg">DuckDuckGo</option>
+                    <option value="startpage">StartPage</option>
+                    <option value="searx">Searx</option>
+                  </select>
+                </span>
+                <a id="opencssmodal">Custom CSS</a>
+                <a id="openjsmodal">Custom JavaScript</a>
+                <a id="openlogomodal">Custom Logo</a>
+                <a id="opensearchmodal">Custom Search Engine</a>
+                <a id="openkbdmodal">Keyboard Shortcuts</a>
+              </div>
+            </div>
+        </div>
+      <p></p>
     </div>
-    <grid-row class="center">
-      <grid-col>
-        <h3>Email</h3>
-        <p><a href="https://mail.google.com">Gmail</a></p>
-        <p><a href="https://mail.yahoo.com">Yahoo! Mail</a></p>
-        <p><a href="https://outlook.com">Outlook</a></p>
-        <p><a href="https://mail.yandex.com">Yandex Mail</a></p>
-        <p><a href="https://mail.aol.com">AOL Mail</a></p>
-        <p><a href="https://www.icloud.com">Apple iCloud Mail</a></p>
-        <p><a href="https://protonmail.com">ProtonMail</a></p>
-        <p><a href="https://www.tutanota.com">Tutanota</a></p>
-        <p><a href="https://www.neomailbox.com">Neomailbox</a></p>
-        <p><a href="https://www.startmail.com">StartMail</a></p>
-      </grid-col>
-      <grid-col>
-        <h3>Messaging</h3>
-        <p><a href="https://discordapp.com">Discord</a></p>
-        <p><a href="https://www.skype.com">Skype</a></p>
-        <p><a href="https://slack.com">Slack</a></p>
-        <p><a href="https://www.messenger.com">Facebook Messenger</a></p>
-        <p><a href="https://www.whatsapp.com">WhatsApp</a></p>
-        <p><a href="https://whispersystems.org">Signal</a></p>
-        <p><a href="https://telegram.org">Telegram</a></p>
-        <p><a href="https://crypto.cat">CryptoCat</a></p>
-        <p><a href="https://tox.chat">Tox</a></p>
-        <p><a href="https://pidgin.im/">Pidgin</a></p>
-      </grid-col>
-      <grid-col>
-        <h3>Entertainment</h3>
-        <p><a href="https://www.youtube.com">YouTube</a></p>
-        <p><a href="https://vid.me">Vidme</a></p>
-        <p><a href="https://synchtu.be">Synchtube</a></p>
-        <p><a href="https://www.netflix.com">Netflix</a></p>
-        <p><a href="https://www.hulu.com">Hulu</a></p>
-        <p><a href="http://www.newgrounds.com">Newgrounds</a></p>
-        <p><a href="https://imgur.com">Imgur</a></p>
-        <p><a href="https://www.4chan.org">4chan</a></p>
-        <p><a href="https://vimeo.com">Vimeo</a></p>
-        <p><a href="http://www.theonion.com">The Onion</a></p>
-      </grid-col>
-      <grid-col>
-        <h3>Social</h3>
-        <p><a href="https://www.facebook.com">Facebook</a></p>
-        <p><a href="https://twitter.com">Twitter</a></p>
-        <p><a href="https://www.reddit.com">Reddit</a></p>
-        <p><a href="https://www.tumblr.com">Tumblr</a></p>
-        <p><a href="https://gab.ai">Gab.ai</a></p>
-        <p><a href="https://www.pinterest.com">Pinterest</a></p>
-        <p><a href="https://www.instagram.com">Instagram</a></p>
-        <p><a href="https://medium.com">Medium</a></p>
-        <p><a href="https://www.linkedin.com">Linkedin</a></p>
-        <p><a href="https://gnu.io/social">GNU Social</a></p>
-      </grid-col>
-      <grid-col>
-        <h3>Tech</h3>
-        <p><a href="https://www.reddit.com/r/technology">/r/Technology</a></p>
-        <p><a href="https://www.macrumors.com">MacRumors</a></p>
-        <p><a href="https://www.techdirt.com">Techdirt</a></p>
-        <p><a href="https://techraptor.net">TechRaptor</a></p>
-        <p><a href="http://www.androidpolice.com">Android Police</a></p>
-        <p><a href="https://www.onmsft.com">OnMSFT</a></p>
-        <p><a href="https://linustechtips.com">LTT Forums</a></p>
-        <p><a href="http://www.tomshardware.com">Tom's Hardware</a></p>
-        <p><a href="https://pcpartpicker.com">PCPartPicker</a></p>
-        <p><a href="https://boards.4chan.org/g/">/g/ - Technology</a></p>
-      </grid-col>
-    </grid-row>
-    <grid-row class="center">
-      <grid-col>
-        <h3>Music</h3>
-        <p><a href="https://www.spotify.com">Spotify</a></p>
-        <p><a href="https://soundcloud.com">Soundcloud</a></p>
-        <p><a href="https://www.pandora.com">Pandora</a></p>
-        <p><a href="https://play.google.com/music/listen">Google Play Music</a></p>
-        <p><a href="https://www.amazon.com/gp/dmusic/promotions/PrimeMusic">Amazon Prime Music</a></p>
-        <p><a href="https://www.last.fm">Last.fm</a></p>
-        <p><a href="https://www.iheart.com">iHeartRadio</a></p>
-        <p><a href="https://bandcamp.com">Bandcamp</a></p>
-        <p><a href="https://www.dubtrack.fm">Dubtrack</a></p>
-        <p><a href="https://napster.com">Napster</a></p>
-      </grid-col>
-      <grid-col>
-        <h3>Shopping</h3>
-        <p><a href="https://amazon.com">Amazon</a></p>
-        <p><a href="https://www.ebay.com">eBay</a></p>
-        <p><a href="https://craigslist.org">Craigslist</a></p>
-        <p><a href="https://www.newegg.com">Newegg</a></p>
-        <p><a href="http://www.barnesandnoble.com">Barnes And Noble</a></p>
-        <p><a href="https://www.spreadshirt.com">Spreadshirt<a></p>
-        <p><a href="https://www.etsy.com">Etsy</a></p>
-        <p><a href="http://www.ikea.com">Ikea</a></p>
-        <p><a href="http://www.bestbuy.com">Best Buy</a></p>
-        <p><a href="https://www.nike.com">Nike</a></p>
-      </grid-col>
-      <grid-col>
-        <h3>Gaming</h3>
-        <p><a href="http://store.steampowered.com">Steam</a></p>
-        <p><a href="https://www.gog.com">GOG</a></p>
-        <p><a href="https://www.humblebundle.com">Humble Bundle</a></p>
-        <p><a href="https://itch.io">itch.io</a></p>
-        <p><a href="https://gamejolt.com">GameJolt</a></p>
-        <p><a href="https://www.twitch.tv">Twitch</a></p>
-        <p><a href="https://gaming.youtube.com">YouTube Gaming</a></p>
-        <p><a href="https://tcrf.net">Cutting Room Floor</a></p>
-        <p><a href="http://battle.net">Battle.net</a></p>
-        <p><a href="http://www.kongregate.com">Kongregate</a></p>
-      </grid-col>
-      <grid-col>
-        <h3>Productivity</h3>
-        <p><a href="https://drive.google.com">Google Drive</a></p>
-        <p><a href="https://docs.google.com">Google Docs</a></p>
-        <p><a href="https://www.wolframalpha.com">Wolfram Alpha</a></p>
-        <p><a href="https://office.com">Microsoft Office</a></p>
-        <p><a href="https://www.libreoffice.org">Libreoffice</a></p>
-        <p><a href="https://www.dropbox.com">Dropbox</a></p>
-        <p><a href="https://trello.com">Trello</a></p>
-        <p><a href="https://evernote.com">Evernote</a></p>
-        <p><a href="https://google.com/calendar">Google Calendar</a></p>
-        <p><a href="https://www.onenote.com">Microsoft Onenote</a></p>
-      </grid-col>
-      <grid-col>
-        <h3>Utilities</h3>
-        <p><a href="http://www.strawpoll.me">Strawpoll</a></p>
-        <p><a href="https://web.archive.org">Wayback Machine</a></p>
-        <p><a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a></p>
-        <p><a href="https://github.com/gorhill/uBlock">uBlock Origin</a></p>
-        <p><a href="https://www.eff.org/privacybadger">Privacy Badger</a></p>
-        <p><a href="https://www.mailinator.com">Mailinator</a></p>
-        <p><a href="https://www.random.org">Random.org</a></p>
-        <p><a href="https://goo.gl">goo.gl</a></p>
-        <p><a href="https://ifttt.com">IFTTT</a></p>
-        <p><a href="https://translate.google.com">Google Translate</a></p>
-      </grid-col>
-    </grid-row>
-    <footer>
-      <p>&copy; <a href="https://ravengergaming.net">Ravenger Gaming 2017.</a> Licensed under the MIT License. <a href="https://github.com/RavengerGaming/RetroPage">Source Code</a></p>
-    </footer>
-    <script>
-      if (localStorage.getItem("selectedengine") != null) {
-        var a = document.getElementById("searchoption");
-        a.value = localStorage.getItem('selectedengine');
-      } else {
-        localStorage.setItem("selectedengine", "google");
-      }
-      
-      var darkstatus = localStorage.getItem("darkmodeon");
-      
-      if (darkstatus == 0) {
-        $('link[title=darktheme]')[0].disabled=true;
-      } else if (darkstatus == 1) {
-        $('link[title=darktheme]')[0].disabled=false;
-      } else {
-        $('link[title=darktheme]')[0].disabled=true;
-        localStorage.setItem("darkmodeon", "0");
-        darkstatus = 0;
-      }
-      
-      function toggledark() {
-        if (darkstatus == 0) {
-          darkstatus = 1;
-          localStorage.setItem("darkmodeon", "1");
-          $('link[title=darktheme]')[0].disabled=false;
-        } else if (darkstatus = 1) {
-          darkstatus = 0;
-          localStorage.setItem("darkmodeon", "0");
-          $('link[title=darktheme]')[0].disabled=true;
-        }
-      }
-    </script>
+    <div class="pagecontent">
+      <div class="center">
+        <p><img src="/retropage.svg" id="logo" width="75%" height="75%" alt="RetroPage" /></p>
+          <h3>RetroPage 2.0 is here! <a href="/blog/v2-update">Learn More</a></h3>
+          <form name="searchbox" id="searchbox" class="searchbox">
+          <input name="searchtext" id="searchtext" type="text">
+          <svg name="SubmitSearch" id="submitsearch" width="24" height="24" type="submit" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
+          </form>
+      </div>
+      <grid-row class="center">
+        <grid-col>
+          <h3>Email</h3>
+          <p><a href="https://mail.google.com">Gmail</a></p>
+          <p><a href="https://mail.yahoo.com">Yahoo! Mail</a></p>
+          <p><a href="https://outlook.com">Outlook</a></p>
+          <p><a href="https://mail.yandex.com">Yandex Mail</a></p>
+          <p><a href="https://mail.aol.com">AOL Mail</a></p>
+          <p><a href="https://www.icloud.com">Apple iCloud Mail</a></p>
+          <p><a href="https://protonmail.com">ProtonMail</a></p>
+          <p><a href="https://www.tutanota.com">Tutanota</a></p>
+          <p><a href="https://www.neomailbox.com">Neomailbox</a></p>
+          <p><a href="https://www.startmail.com">StartMail</a></p>
+        </grid-col>
+        <grid-col>
+          <h3>Messaging</h3>
+          <p><a href="https://discordapp.com">Discord</a></p>
+          <p><a href="https://www.skype.com">Skype</a></p>
+          <p><a href="https://slack.com">Slack</a></p>
+          <p><a href="https://www.messenger.com">Facebook Messenger</a></p>
+          <p><a href="https://www.whatsapp.com">WhatsApp</a></p>
+          <p><a href="https://whispersystems.org">Signal</a></p>
+          <p><a href="https://telegram.org">Telegram</a></p>
+          <p><a href="https://crypto.cat">CryptoCat</a></p>
+          <p><a href="https://tox.chat">Tox</a></p>
+          <p><a href="https://pidgin.im/">Pidgin</a></p>
+        </grid-col>
+        <grid-col>
+          <h3>Entertainment</h3>
+          <p><a href="https://www.youtube.com">YouTube</a></p>
+          <p><a href="https://vid.me">Vidme</a></p>
+          <p><a href="https://synchtu.be">Synchtube</a></p>
+          <p><a href="https://www.netflix.com">Netflix</a></p>
+          <p><a href="https://www.hulu.com">Hulu</a></p>
+          <p><a href="http://www.newgrounds.com">Newgrounds</a></p>
+          <p><a href="https://imgur.com">Imgur</a></p>
+          <p><a href="https://www.4chan.org">4chan</a></p>
+          <p><a href="https://vimeo.com">Vimeo</a></p>
+          <p><a href="http://www.theonion.com">The Onion</a></p>
+        </grid-col>
+        <grid-col>
+          <h3>Social</h3>
+          <p><a href="https://www.facebook.com">Facebook</a></p>
+          <p><a href="https://twitter.com">Twitter</a></p>
+          <p><a href="https://www.reddit.com">Reddit</a></p>
+          <p><a href="https://www.tumblr.com">Tumblr</a></p>
+          <p><a href="https://gab.ai">Gab.ai</a></p>
+          <p><a href="https://www.pinterest.com">Pinterest</a></p>
+          <p><a href="https://www.instagram.com">Instagram</a></p>
+          <p><a href="https://medium.com">Medium</a></p>
+          <p><a href="https://www.linkedin.com">Linkedin</a></p>
+          <p><a href="https://gnu.io/social">GNU Social</a></p>
+        </grid-col>
+        <grid-col>
+          <h3>Tech</h3>
+          <p><a href="https://www.reddit.com/r/technology">/r/Technology</a></p>
+          <p><a href="https://www.macrumors.com">MacRumors</a></p>
+          <p><a href="https://www.techdirt.com">Techdirt</a></p>
+          <p><a href="https://techraptor.net">TechRaptor</a></p>
+          <p><a href="http://www.androidpolice.com">Android Police</a></p>
+          <p><a href="https://www.onmsft.com">OnMSFT</a></p>
+          <p><a href="https://linustechtips.com">LTT Forums</a></p>
+          <p><a href="http://www.tomshardware.com">Tom's Hardware</a></p>
+          <p><a href="https://pcpartpicker.com">PCPartPicker</a></p>
+          <p><a href="https://boards.4chan.org/g/">/g/ - Technology</a></p>
+        </grid-col>
+      </grid-row>
+      <grid-row class="center">
+        <grid-col>
+          <h3>Music</h3>
+          <p><a href="https://www.spotify.com">Spotify</a></p>
+          <p><a href="https://soundcloud.com">Soundcloud</a></p>
+          <p><a href="https://www.pandora.com">Pandora</a></p>
+          <p><a href="https://play.google.com/music/listen">Google Play Music</a></p>
+          <p><a href="https://www.amazon.com/gp/dmusic/promotions/PrimeMusic">Amazon Prime Music</a></p>
+          <p><a href="https://www.last.fm">Last.fm</a></p>
+          <p><a href="https://www.iheart.com">iHeartRadio</a></p>
+          <p><a href="https://bandcamp.com">Bandcamp</a></p>
+          <p><a href="https://www.dubtrack.fm">Dubtrack</a></p>
+          <p><a href="https://napster.com">Napster</a></p>
+        </grid-col>
+        <grid-col>
+          <h3>Shopping</h3>
+          <p><a href="https://amazon.com">Amazon</a></p>
+          <p><a href="https://www.ebay.com">eBay</a></p>
+          <p><a href="https://craigslist.org">Craigslist</a></p>
+          <p><a href="https://www.newegg.com">Newegg</a></p>
+          <p><a href="http://www.barnesandnoble.com">Barnes And Noble</a></p>
+          <p><a href="https://www.spreadshirt.com">Spreadshirt<a></p>
+          <p><a href="https://www.etsy.com">Etsy</a></p>
+          <p><a href="http://www.ikea.com">Ikea</a></p>
+          <p><a href="http://www.bestbuy.com">Best Buy</a></p>
+          <p><a href="https://www.nike.com">Nike</a></p>
+        </grid-col>
+        <grid-col>
+          <h3>Gaming</h3>
+          <p><a href="http://store.steampowered.com">Steam</a></p>
+          <p><a href="https://www.gog.com">GOG</a></p>
+          <p><a href="https://www.humblebundle.com">Humble Bundle</a></p>
+          <p><a href="https://itch.io">itch.io</a></p>
+          <p><a href="https://gamejolt.com">GameJolt</a></p>
+          <p><a href="https://www.twitch.tv">Twitch</a></p>
+          <p><a href="https://gaming.youtube.com">YouTube Gaming</a></p>
+          <p><a href="https://tcrf.net">Cutting Room Floor</a></p>
+          <p><a href="http://battle.net">Battle.net</a></p>
+          <p><a href="http://www.kongregate.com">Kongregate</a></p>
+        </grid-col>
+        <grid-col>
+          <h3>Productivity</h3>
+          <p><a href="https://drive.google.com">Google Drive</a></p>
+          <p><a href="https://docs.google.com">Google Docs</a></p>
+          <p><a href="https://www.wolframalpha.com">Wolfram Alpha</a></p>
+          <p><a href="https://office.com">Microsoft Office</a></p>
+          <p><a href="https://www.libreoffice.org">Libreoffice</a></p>
+          <p><a href="https://www.dropbox.com">Dropbox</a></p>
+          <p><a href="https://trello.com">Trello</a></p>
+          <p><a href="https://evernote.com">Evernote</a></p>
+          <p><a href="https://google.com/calendar">Google Calendar</a></p>
+          <p><a href="https://www.onenote.com">Microsoft Onenote</a></p>
+        </grid-col>
+        <grid-col>
+          <h3>Utilities</h3>
+          <p><a href="http://www.strawpoll.me">Strawpoll</a></p>
+          <p><a href="https://web.archive.org">Wayback Machine</a></p>
+          <p><a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a></p>
+          <p><a href="https://github.com/gorhill/uBlock">uBlock Origin</a></p>
+          <p><a href="https://www.eff.org/privacybadger">Privacy Badger</a></p>
+          <p><a href="https://www.mailinator.com">Mailinator</a></p>
+          <p><a href="https://www.random.org">Random.org</a></p>
+          <p><a href="https://goo.gl">goo.gl</a></p>
+          <p><a href="https://ifttt.com">IFTTT</a></p>
+          <p><a href="https://translate.google.com">Google Translate</a></p>
+        </grid-col>
+      </grid-row>
+      <footer>
+        <p>&copy; <a href="https://ravengergaming.net">Ravenger Gaming 2017.</a></p>
+        <p><a href="https://github.com/RavengerGaming/RetroPage">Source Code</a> - <a href="/noscript">Noscript "Classic" Version</a> - <a href="/blog">Blog</a> - <a href="/license">License</a></p>
+      </footer>
+    </div>
   </body>
 </html>
