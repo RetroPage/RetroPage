@@ -453,7 +453,7 @@ window.onload = function() {
             e.preventDefault();
             e.stopPropagation();
             toggledark();
-        } else if (e.ctrlKey && e.altKey && e.which == 186) {
+        } else if (e.ctrlKey && e.altKey && e.which == 59) {
             e.preventDefault();
             e.stopPropagation();
             opencssmodal();
