@@ -288,8 +288,8 @@ window.onload = function() {
         if (customjs.value !== "" && customjs.value !== "null") {
             localStorage.setItem("customjs", customjs.value);
             $("#customjs").remove();
-            $('head').append('<script id="customjs">' + customjs.value + "</script>");
             closeall();
+            location.reload();
             return false;
         } else {
             localStorage.removeItem("customjs");
@@ -453,7 +453,7 @@ window.onload = function() {
             e.preventDefault();
             e.stopPropagation();
             toggledark();
-        } else if (e.ctrlKey && e.altKey && e.which == 59 || e.which == 186) {
+        } else if (e.ctrlKey && e.altKey && e.which == 59 || e.ctrlKey && e.altKey && e.which == 186) {
             e.preventDefault();
             e.stopPropagation();
             opencssmodal();
@@ -483,5 +483,20 @@ window.onload = function() {
             closeall();
         }
     };
+    
+    // Make pressing the Tab key insert an indent in Textarea
+    $("textarea").keydown(function(e) {
+    if(e.keyCode === 9) {
+        var start = this.selectionStart;
+        var end = this.selectionEnd;
+        var $this = $(this);
+        var value = $this.val();
+        $this.val(value.substring(0, start)
+                    + "\t"
+                    + value.substring(end));
+        this.selectionStart = this.selectionEnd = start + 1;
+        e.preventDefault();
+    }
+});
 };
 // @license-end
