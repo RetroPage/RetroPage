@@ -1,36 +1,36 @@
 body {
-  background-color: #000000;
-  color: #FFFFFF;
+    background-color: #000000;
+    color: #FFFFFF;
 }
 footer {
-  background-color: #282828!important;
-  color: #636c72!important;
+    background-color: #282828!important;
+    color: #636c72!important;
 }
-.modal-header, .modal-content p {
- color: #FFFFFF;
+.modal-header,
+.modal-content p {
+    color: #FFFFFF;
 }
-input[type="text"], #customcssinput, #customjsinput, #logourl, #searchname, #searchurl {
-  border: 1px solid #545454!important;
-  background-color:#212121;
-  color: #FFFFFF;
-  box-shadow: none!important;
+input[type="text"], #customcssinput, #customjsinput, #logourl, #searchname, #searchurl, #importdata, #exportdata {
+    border: 1px solid #545454!important;
+    background-color: #212121;
+    color: #FFFFFF;
+    box-shadow: none!important;
 }
 .modal-box {
-  background-color: #212121!important;
+    background-color: #212121!important;
 }
 .modal-close {
-  color: #FFFFFF;
+    color: #FFFFFF;
 }
 .modal-close:hover {
-  color: #b7b7b7;
+    color: #b7b7b7;
 }
 .modal-close:active {
- color: #878787; 
+    color: #878787;
 }
 #optionsbtn, #submitsearch {
-  fill: #FFFFFF!important;
+    fill: #FFFFFF!important;
 }
-
 .button-submit, .button-submit:hover, .button-submit:active, .button-clear, .button-clear:hover, .button-clear:active {
-  color: #FFFFFF!important;
+    color: #FFFFFF!important;
 }

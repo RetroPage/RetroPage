@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="A lightweight homepage to quickly get you where you need to go.">
     <title>RetroPage</title>
-    <link href="element.css" rel="stylesheet">
+    <link href="/element.css" rel="stylesheet">
     <link rel="stylesheet" href="retropage.css" type="text/css" media="none" onload="if(media!='all')media='all'" />
     <link rel="stylesheet" href="dark.css" type="text/css" title="darktheme" media="none" onload="if(media!='all')media='all'" disabled="true" />
     <noscript>
@@ -37,7 +37,7 @@
     <meta name="msapplication-square150x150logo" content="mstile-150x150.png" />
     <meta name="msapplication-wide310x150logo" content="mstile-310x150.png" />
     <meta name="msapplication-square310x310logo" content="mstile-310x310.png" />
-    <script src="zepto.min.js" async></script>
+    <script src="/zepto.min.js" async></script>
     <script src="retropage.js" async></script>
     <script>
     /*
@@ -95,7 +95,7 @@
             <textarea name="customjsinput" id="customjsinput" rows="10" wrap="hard" placeholder="Write your JavaScript here."></textarea>
             <p></p>
             <button id="jssubmit" onclick="return false()" class="button-submit">Submit</button>
-            <button id="jsclear" class="button-clear">Clear</button>
+            <button id="jsclear" onclick="return false()" class="button-clear">Clear</button>
             </textarea>
           </form>
         </div>
@@ -150,6 +150,7 @@
                 <p><span class="kbd">CTRL + ALT + ;</span> - Custom CSS</p>
                 <p><span class="kbd">CTRL + ALT + l</span> - Custom Logo</p>
                 <p><span class="kbd">CTRL + ALT + k</span> - Custom Javascript</p>
+                <p><span class="kbd">CTRL + ALT + h</span> - Import/Export Data</p>
               </grid-col>
               <grid-col>
                 <p><span class="kbd">CTRL + ALT + j</span> - Set Search Engine</p>
@@ -166,6 +167,7 @@
                 <p><span class="kbd">Control ⌃ + &#x2325; + ;</span> - Custom CSS</p>
                 <p><span class="kbd">Control ⌃ + &#x2325; + l</span> - Custom Logo</p>
                 <p><span class="kbd">Control ⌃ + &#x2325; + k</span> - Custom JavaScript</p>
+                <p><span class="kbd">Control ⌃ + &#x2325; + k</span> - Import/Export Data</p>
               </grid-col>
               <grid-col>
                 <p><span class="kbd">Control ⌃ + &#x2325; + j</span> - Set Search Engine</p>
@@ -178,7 +180,39 @@
         </div>
       </div>
   </div>
-      <div class="options">
+  <div class="modal" id="exportmodal">
+      <div class="modal-box">
+        <span class="modal-close" id="exportmodalclose">&times;</span>
+        <div class="modal-content">
+          <div id="export-pg1">
+            <h2 class="modal-header">Import/Export RetroPage Data</h2>
+            <p>If you wish you can import and export your RetroPage data. This is useful if you want to back up your data or if you're moving from one device to the other. Please select what you want to do.</p>
+            <button id="export-import" onclick="return false()" class="button-submit">Import</button>
+            <button id="export-export" onclick="return false()" class="button-clear">Export</button>
+          </div>
+          <div id="export-pg2">
+            <h2 class="modal-header">Import RetroPage Data</h2>
+            <p>Please paste the RetroPage data you want to import in the text box below, and select the "submit" button.</p>
+            <p class="modal-error" id="importinvalidjson">ERROR: What you submitted is invalid. Please double check and make sure everything is correct. (Not Valid JSON)</p>
+            <textarea name="importdata" id="importdata" rows="10" wrap="hard"></textarea>
+            <button id="submitimport" onclick="return false()" class="button-clear button-wide">Submit</button>
+          </div>
+          <div id="export-pg3">
+            <h2 class="modal-header">Export RetroPage Data</h2>
+            <p>Here is your RetroPage data. Please copy it and paste it somewhere else for safekeeping. You can use this to import your RetroPage data elsewhere.</p>
+            <textarea name="exportdata" id="exportdata" rows="10" onclick="this.focus(); this.select();" wrap="hard" readonly></textarea>
+            <button id="exportmodaldone" onclick="return false()" class="button-clear button-wide">Done</button>
+          </div>
+          <div id="export-pg4">
+            <h2 class="modal-header">Import Complete!</h2>
+            <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 419.5 419.5" width="250px" height="250px"><defs><style>.cls-1{fill:#00c853;stroke:#00c853;stroke-miterlimit:10;}</style></defs><path class="cls-1" d="M245.65,35C130.09,35,36.4,128.7,36.4,244.25A209.12,209.12,0,0,0,245.65,453.5c115.55,0,209.25-93.7,209.25-209.25S361.2,35,245.65,35Zm0,372A162.75,162.75,0,1,1,408.4,244.25,162.63,162.63,0,0,1,245.65,407ZM211.7,279.82,162.18,230.3l-24.64,24.64,73.93,73.94L351,189.38l-24.64-24.64Z" transform="translate(-35.9 -34.5)"/></svg>
+            <p>Please click the "Reload" button below to load your imported data.</p>
+            <button id="importmodaldone" onclick="return false()" class="button-clear button-wide">Reload Page</button>
+          </div>
+        </div>
+      </div>
+  </div>
+      <div class="options" id="options">
         <div class="siteoptions">
           <svg id="optionsbtn" width="24" height="24" viewBox="0 0 24 24"><path d="M12,15.5A3.5,3.5 0 0,1 8.5,12A3.5,3.5 0 0,1 12,8.5A3.5,3.5 0 0,1 15.5,12A3.5,3.5 0 0,1 12,15.5M19.43,12.97C19.47,12.65 19.5,12.33 19.5,12C19.5,11.67 19.47,11.34 19.43,11L21.54,9.37C21.73,9.22 21.78,8.95 21.66,8.73L19.66,5.27C19.54,5.05 19.27,4.96 19.05,5.05L16.56,6.05C16.04,5.66 15.5,5.32 14.87,5.07L14.5,2.42C14.46,2.18 14.25,2 14,2H10C9.75,2 9.54,2.18 9.5,2.42L9.13,5.07C8.5,5.32 7.96,5.66 7.44,6.05L4.95,5.05C4.73,4.96 4.46,5.05 4.34,5.27L2.34,8.73C2.21,8.95 2.27,9.22 2.46,9.37L4.57,11C4.53,11.34 4.5,11.67 4.5,12C4.5,12.33 4.53,12.65 4.57,12.97L2.46,14.63C2.27,14.78 2.21,15.05 2.34,15.27L4.34,18.73C4.46,18.95 4.73,19.03 4.95,18.95L7.44,17.94C7.96,18.34 8.5,18.68 9.13,18.93L9.5,21.58C9.54,21.82 9.75,22 10,22H14C14.25,22 14.46,21.82 14.5,21.58L14.87,18.93C15.5,18.67 16.04,18.34 16.56,17.94L19.05,18.95C19.27,19.03 19.54,18.95 19.66,18.73L21.66,15.27C21.78,15.05 21.73,14.78 21.54,14.63L19.43,12.97Z" /></svg>
             <div id="options-box">
@@ -199,6 +233,7 @@
                 <a id="openlogomodal">Custom Logo</a>
                 <a id="opensearchmodal">Custom Search Engine</a>
                 <a id="openkbdmodal">Keyboard Shortcuts</a>
+                <a id="openexportmodal">Import/Export</a>
               </div>
             </div>
         </div>

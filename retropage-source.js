@@ -4,13 +4,12 @@ window.onload = function() {
     var searchbox = document.getElementById('searchbox');
     var submitsearch = document.getElementById('submitsearch');
     var optionsbtn = document.getElementById('optionsbtn');
-    var optionsbox = document.getElementById("options-box");
+    var optionsbox = document.getElementById('options-box');
     var cssmodalbtn = document.getElementById('opencssmodal');
     var closecssmodal = document.getElementById('cssmodalclose');
     var cssmodal = document.getElementById('cssmodal');
     var customcsssubmit = document.getElementById('csssubmit');
     var clearcustomcss = document.getElementById('cssclear');
-    var customcssbox = document.getElementById('customcss');
     var customcss = document.getElementById('customcssinput');
     var savedcustomcss = localStorage.getItem("customcss");
     var logomodalbtn = document.getElementById('openlogomodal');
@@ -38,13 +37,26 @@ window.onload = function() {
     var closekbdmodal = document.getElementById('kbdmodalclose');
     var jsmodal = document.getElementById('jsmodal');
     var jsmodalbtn = document.getElementById('openjsmodal');
-    var jsmodalsubmit = document.getElementById('jssubmit');
     var customjs = document.getElementById('customjsinput');
     var closejsmodal = document.getElementById('jsmodalclose');
     var jssubmit = document.getElementById('jssubmit');
     var jsclear = document.getElementById('jsclear');
-    var savedcustomjs = localStorage.getItem("customjs");
-    var darkstatus = localStorage.getItem("themestatus");
+    var savedcustomjs = localStorage.getItem('customjs');
+    var exportmodal = document.getElementById('exportmodal');
+    var exportmodalbtn = document.getElementById('openexportmodal');
+    var closeexportmodal = document.getElementById('exportmodalclose');
+    var exportmodaldone = document.getElementById('exportmodaldone');
+    var exportmodalpg1 = document.getElementById('export-pg1');
+    var exportmodalpg2 = document.getElementById('export-pg2');
+    var exportmodalpg3 = document.getElementById('export-pg3');
+    var exportmodalpg4 = document.getElementById('export-pg4');
+    var exportmodalopt1 = document.getElementById('export-import');
+    var exportmodalopt2 = document.getElementById('export-export');
+    var importsubmit = document.getElementById('submitimport');
+    var importdata = document.getElementById('importdata');
+    var importreload = document.getElementById('importmodaldone');
+    var importerror = document.getElementById('importinvalidjson');
+    var darkstatus = localStorage.getItem('themestatus');
     var savedsearch = localStorage.getItem('selectedengine');
     var customsearchset = localStorage.getItem('customsearchset');
     var optionsopen = 0;
@@ -53,6 +65,19 @@ window.onload = function() {
     var logomodalopen = 0;
     var searchmodalopen = 0;
     var kbdmodalopen = 0;
+    var exportmodalopen = 0;
+    var exportmodalpg = 1;
+    var selectid = null;
+    var exportObject = {
+        'customcss': localStorage.getItem('customcss'),
+        'customjs': localStorage.getItem('customjs'),
+        'customsearchname': localStorage.getItem('customsearchname'),
+        'customsearchset': localStorage.getItem('customsearchset'),
+        'customsearchurl': localStorage.getItem('customsearchurl'),
+        'logourl': localStorage.getItem('logourl'),
+        'selectedengine': localStorage.getItem('selectedengine'),
+        'themestatus': localStorage.getItem('themestatus')
+    };
 
     function closeall() {
         optionsbox.style.display = "none";
@@ -67,49 +92,37 @@ window.onload = function() {
         searchmodalopen = 0;
         kbdmodal.style.display = "none";
         kbdmodalopen = 0;
+        exportmodal.style.display = "none";
+        exportmodalopen = 0;
     }
 
     //Do search
     function dosearch() {
-        var searchtextbox = document.getElementById("searchtext");
         var searchbox = document.searchbox;
-        var googurl = "https://encrypted.google.com/#q=";
-        var bingurl = "https://www.bing.com/search?q=";
-        var yurl = "https://search.yahoo.com/search?p=";
-        var ddgurl = "https://duckduckgo.com/?q=";
-        var startpageurl = "https://www.startpage.com/do/search?query=";
-        var searx = "https://searx.me/?q=";
         savedcustomsearchurl = localStorage.getItem('customsearchurl');
         savedsearch = localStorage.getItem('selectedengine');
         if (savedsearch == "google") {
-            searchurl = googurl + escape(searchbox.searchtext.value);
-            window.location.href = searchurl;
+            window.location.href = "https://encrypted.google.com/#q=" + escape(searchbox.searchtext.value);
             return false;
         } else if (savedsearch == "bing") {
-            searchurl = bingurl + escape(searchbox.searchtext.value);
-            window.location.href = searchurl;
+            window.location.href = "https://www.bing.com/search?q=" + escape(searchbox.searchtext.value);
             return false;
         } else if (savedsearch == "yahoo") {
-            searchurl = yurl + escape(searchbox.searchtext.value);
-            window.location.href = searchurl;
+            window.location.href = "https://search.yahoo.com/search?p=" + escape(searchbox.searchtext.value);
             return false;
         } else if (savedsearch == "ddg") {
-            searchurl = ddgurl + escape(searchbox.searchtext.value);
-            window.location.href = searchurl;
+            window.location.href = "https://duckduckgo.com/?q=" + escape(searchbox.searchtext.value);
             return false;
         } else if (savedsearch == "startpage") {
-            searchurl = startpageurl + escape(searchbox.searchtext.value);
-            window.location.href = searchurl;
+            window.location.href = "https://www.startpage.com/do/search?query=" + escape(searchbox.searchtext.value);
             return false;
         } else if (savedsearch == "searx") {
-            searchurl = searx + escape(searchbox.searchtext.value) + "&categories=general";
-            window.location.href = searchurl;
+            window.location.href = "https://searx.me/?q=" + escape(searchbox.searchtext.value) + "&categories=general";
             return false;
         } else if (savedsearch == "custom") {
-            searchurl = savedcustomsearchurl + escape(searchbox.searchtext.value);
-            window.location.href = searchurl;
+            window.location.href = savedcustomsearchurl + escape(searchbox.searchtext.value);
             return false;
-          }
+        }
     }
     searchbox.onsubmit = dosearch;
     submitsearch.onclick = dosearch;
@@ -193,6 +206,11 @@ window.onload = function() {
         null;
     }
 
+    //fix for customsearchset being set to 1 with no custom search engine set
+    if (customsearchset == 1 && savedcustomsearchname == null || savedcustomsearchname == undefined || savedcustomsearchurl == null || savedcustomsearchurl == undefined) {
+        localStorage.removeItem("customsearchset");
+    }
+
     //open options menu
     optionsbtn.onclick = function() {
         if (optionsopen === 0) {
@@ -214,6 +232,11 @@ window.onload = function() {
             darkstatus = 0;
             localStorage.setItem("themestatus", "0");
             $('link[title=darktheme]')[0].disabled = true;
+        } else if (darkstatus == 2) {
+            darkstatus = 0;
+            localStorage.setItem("themestatus", "0");
+            $('link[title=darktheme]')[0].disabled = true;
+            $("#customstyling").remove();
         }
     }
     darkbtn.onclick = toggledark;
@@ -313,7 +336,7 @@ window.onload = function() {
     if (savedcustomjs !== "null" && savedcustomjs !== "" && savedcustomjs !== null) {
         $('head').append('<script id="customjs">' + savedcustomjs + "</script>");
     } else {
-      null;
+        null;
     }
 
 
@@ -342,7 +365,6 @@ window.onload = function() {
                 localStorage.setItem("logourl", logourl.value);
                 $("#logo").attr("src", logourl.value);
                 logourlnotvalid.style.display = "none";
-                iscustomlogo = 1;
                 closeall();
                 return false;
             } else {
@@ -411,17 +433,18 @@ window.onload = function() {
             return false;
         }
     };
-    
+
     customsearchclear.onclick = function() {
-      localStorage.removeItem("customsearchname");
-      localStorage.removeItem("customsearchurl");
-      $("#searchoption").val("google");
-      $("#searchoption option[value='custom']").remove();
-      localStorage.setItem("selectedengine", "google");
-      setengine();
-      closeall();
-      return false;
+        localStorage.removeItem("customsearchname");
+        localStorage.removeItem("customsearchurl");
+        $("#searchoption").val("google");
+        $("#searchoption option[value='custom']").remove();
+        localStorage.setItem("selectedengine", "google");
+        setengine();
+        closeall();
+        return false;
     }
+
 
     //open keyboard shortcut modal
     function openkbdmodal() {
@@ -447,6 +470,123 @@ window.onload = function() {
     kbdmodalbtn.onclick = openkbdmodal;
     closekbdmodal.onclick = closeall;
 
+    //Open custom export modal upon button being selected
+    function openexportmodal() {
+        if (exportmodalopen === 0) {
+            closeall();
+            exportmodal.style.display = "block";
+            exportmodalpg1.style.display = "block";
+            importerror.style.display = "none";
+            exportmodalopen = 1;
+            exportmodalpg = 1;
+            optionsbox.style.display = "none";
+            exportmodalpg2.style.display = "none";
+            exportmodalpg3.style.display = "none";
+            exportmodalpg4.style.display = "none";
+            optionsopen = 0;
+        } else {
+            closeall();
+        }
+    }
+    exportmodalbtn.onclick = openexportmodal;
+    closeexportmodal.onclick = closeall;
+    exportmodaldone.onclick = closeall;
+
+    function showimport() {
+        exportmodalpg1.style.display = "none";
+        exportmodalpg2.style.display = "block";
+        exportmodalpg3.style.display = "none";
+        exportmodalpg4.style.display = "none";
+        importerror.style.display = "none";
+    }
+    exportmodalopt1.onclick = showimport;
+
+    function doimport() {
+        try {
+            importdata = document.getElementById('importdata');
+            var parsedimport = JSON.parse(importdata.value);
+            if (parsedimport.customcss !== null) {
+                localStorage.setItem("customcss", parsedimport.customcss);
+            } else {
+                null;
+            }
+            if (parsedimport.customjs !== null) {
+                localStorage.setItem("customjs", parsedimport.customjs);
+            } else {
+                null;
+            }
+            if (parsedimport.customsearchname !== null) {
+                localStorage.setItem("customsearchname", parsedimport.customsearchname);
+            } else {
+                null;
+            }
+            if (parsedimport.customsearchset !== null) {
+                localStorage.setItem("customsearchset", parsedimport.customsearchset);
+            } else {
+                null;
+            }
+            if (parsedimport.customsearchurl !== null) {
+                localStorage.setItem("customsearchurl", parsedimport.customsearchurl);
+            } else {
+                null;
+            }
+            if (parsedimport.logourl !== null) {
+                localStorage.setItem("logourl", parsedimport.logourl);
+            } else {
+                null;
+            }
+            if (parsedimport.selectedengine !== null) {
+                localStorage.setItem("selectedengine", parsedimport.selectedengine);
+            } else {
+                null;
+            }
+            if (parsedimport.themestatus !== null) {
+                localStorage.setItem("themestatus", parsedimport.themestatus);
+            } else {
+                null;
+            }
+            importconfirm();
+            return false;
+        } catch (e) {
+            importerror.style.display = "block";
+            return false;
+        }
+    }
+    importsubmit.onclick = doimport;
+
+    function importconfirm() {
+        exportmodalpg1.style.display = "none";
+        exportmodalpg2.style.display = "none";
+        exportmodalpg3.style.display = "none";
+        exportmodalpg4.style.display = "block";
+        $("#exportmodalclose").remove();
+    }
+
+    function reload() {
+        location.reload();
+    }
+    importreload.onclick = reload;
+
+    function retropageexport() {
+        exportmodalpg1.style.display = "none";
+        exportmodalpg2.style.display = "none";
+        exportmodalpg3.style.display = "block";
+        exportmodalpg4.style.display = "none";
+        exportmodalpg = 3;
+        exportObject = {
+            'customcss': localStorage.getItem('customcss'),
+            'customjs': localStorage.getItem('customjs'),
+            'customsearchname': localStorage.getItem('customsearchname'),
+            'customsearchset': localStorage.getItem('customsearchset'),
+            'customsearchurl': localStorage.getItem('customsearchurl'),
+            'logourl': localStorage.getItem('logourl'),
+            'selectedengine': localStorage.getItem('selectedengine'),
+            'themestatus': localStorage.getItem('themestatus')
+        };
+        document.getElementById("exportdata").value = JSON.stringify(exportObject);
+    }
+    exportmodalopt2.onclick = retropageexport;
+
     //Keyboard Shortcuts
     document.onkeydown = function(e) {
         if (e.ctrlKey && e.altKey && e.which == 222) {
@@ -469,6 +609,10 @@ window.onload = function() {
             e.preventDefault();
             e.stopPropagation();
             opensearchmodal();
+        } else if (e.ctrlKey && e.altKey && e.which == 72) {
+            e.preventDefault();
+            e.stopPropagation();
+            openexportmodal();
         } else if (e.ctrlKey && e.altKey && e.which == 82) {
             e.preventDefault();
             e.stopPropagation();
@@ -483,20 +627,20 @@ window.onload = function() {
             closeall();
         }
     };
-    
+
     // Make pressing the Tab key insert an indent in Textarea
     $("textarea").keydown(function(e) {
-    if(e.keyCode === 9) {
-        var start = this.selectionStart;
-        var end = this.selectionEnd;
-        var $this = $(this);
-        var value = $this.val();
-        $this.val(value.substring(0, start)
-                    + "\t"
-                    + value.substring(end));
-        this.selectionStart = this.selectionEnd = start + 1;
-        e.preventDefault();
-    }
-});
+        if (e.keyCode === 9) {
+            var start = this.selectionStart;
+            var end = this.selectionEnd;
+            var $this = $(this);
+            var value = $this.val();
+            $this.val(value.substring(0, start) +
+                "\t" +
+                value.substring(end));
+            this.selectionStart = this.selectionEnd = start + 1;
+            e.preventDefault();
+        }
+    });
 };
 // @license-end
