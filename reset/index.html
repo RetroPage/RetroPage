@@ -14,7 +14,7 @@
         margin: auto;
       }
       .red {
-        color: #D50000; 
+        color: #D50000;
       }
       .no-bottom-border {
        border-bottom: 0!important;
@@ -29,14 +29,14 @@
         margin-bottom: 0px!important;
       }
       hr {
-       background-color: #000000!important; 
+       background-color: #000000!important;
       }
       #warning {
         fill: #F9A825;
         -webkit-filter: drop-shadow(0px 2px 0px #000);
         -moz-filter: drop-shadow(0px 2px 0px #000);
-        -o-filter: drop-shadow(0px 2px 0px #000); 
-        -ms-filter: drop-shadow(0px 2px 0px #000); 
+        -o-filter: drop-shadow(0px 2px 0px #000);
+        -ms-filter: drop-shadow(0px 2px 0px #000);
         filter: drop-shadow(0px 2px 0px #000 );
       }
       #button-reset {
@@ -48,7 +48,7 @@
         color: white!important;
       }
       #button-reset:active {
-       background-color: #960000!important; 
+       background-color: #960000!important;
       }
       #button-cancel {
         border: 2px solid #616161;
@@ -61,7 +61,7 @@
       #button-cancel:active {
         background-color: #282828!important;
       }
-      
+
       /* Loading Animation by @lukehaas*/
       .loader {
       margin: 100px auto;
@@ -157,7 +157,7 @@
     @licstart  The following is the entire license notice for the
     JavaScript code in this page.
 
-    Copyright (c) 2017 Ravenger Gaming <ravengergamingnetwork@gmail.com> (ravengergaming.net)
+    Copyright (c) 2018 Ravenger <ravengernetwork@gmail.com> (ravenger.net)
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -193,14 +193,14 @@
     <div id="resetconfirmation">
       <svg width="20%" height="20%" class="center" id="warning" viewBox="0 0 24 24"><path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z" /></svg>
       <p class="center">Here you can reset RetroPage, which will reset all settings to their defaults and clear all user data. A reset is recommended if you wish to start over or something went wrong and you need to reset everything.</p>
-      
+
       <p class="red center"><strong>WARNING: THIS CANNOT BE UNDONE. ALL USER DATA AND SETTINGS WILL BE LOST.</strong></p>
       <h3 class="center">Reset all settings and clear user data?</h3>
       <button id="button-reset">Reset</button>
       <button id="button-cancel">Cancel</button>
     </div>
       <footer>
-        <p>&copy; <a href="https://ravenger.net">Ravenger 2017.</a></p>
+        <p>&copy; <a href="https://ravenger.net">Ravenger 2018.</a></p>
         <p><a href="https://github.com/RavengerGaming/RetroPage">Source Code</a> - <a href="/noscript">Noscript "Classic" Version</a> - <a href="/blog">Blog</a> - <a href="/license">License</a></p>
       </footer>
       <script>
@@ -209,10 +209,10 @@
       var resetbutton = document.getElementById("button-reset");
       var cancelbutton = document.getElementById("button-cancel");
       var clearredo = 0;
-      
+
       resetconfirmation.style.display="block";
       resetting.style.display="none";
-      
+
       function clearlocalstorage() {
         localStorage.removeItem("darkmodeon");
         localStorage.removeItem("themestatus");
@@ -225,10 +225,10 @@
         if (clearredo == 1) {
           confirmandredirect();
         } else {
-         null; 
+         null;
         }
       }
-      
+
       function confirmandredirect() {
         if (localStorage.getItem("darkmodeon") == null && localStorage.getItem("themestatus") == null && localStorage.getItem("customjs") == null && localStorage.getItem("customcss") == null && localStorage.getItem("customsearchname") == null && localStorage.getItem("customsearchurl") == null && localStorage.getItem("selectedengine") == null && localStorage.getItem("logourl") == null) {
           setTimeout(function(){
@@ -240,16 +240,16 @@
             clearredo = 1;
             clearlocalstorage();
           }, 500);
-        } 
+        }
       }
-      
+
       resetbutton.onclick = function() {
         resetconfirmation.style.display="none";
         resetting.style.display="block";
         clearlocalstorage();
         confirmandredirect();
       }
-      
+
       cancelbutton.onclick = function() {
         window.location.href = "/";
       }
