@@ -13,7 +13,7 @@ You can contribute to RetroPage by making a Pull Request. Please make sure to fo
 
 ### Branches
 
-RetroPage's repository is split into 2 branches: The "MASTER" branch, and the "dev" branch. The "MASTER" branch contains what is currently in the latest release version of RetroPage. The Dev branch is for the development of new versions. Once a version is complete, the Dev branch will be merged into the MASTER branch.
+RetroPage's repository is split into 2 branches: The "master" branch, and the "dev" branch. The master branch contains what is currently in the latest release version of RetroPage. The dev branch is for the development of new versions. Once a version is complete, the dev branch will be merged into the master branch.
 
 ### "Source" Files
 
