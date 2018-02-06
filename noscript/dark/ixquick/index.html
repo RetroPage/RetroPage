@@ -22,6 +22,20 @@
       #searchtext {
         width: 80%!important;
       }
+      body {
+        background-color: #000000;
+        color: #FFFFFF;
+      }
+      footer {
+        background-color: #282828!important;
+        color: #636c72!important;
+      }
+      input[type="text"], #customcssinput, #customjsinput, #logourl, #searchname, #searchurl {
+        border: 1px solid #545454!important;
+        background-color:#212121;
+        color: #FFFFFF;
+        box-shadow: none!important;
+      }
     </style>
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png" />
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114.png" />
@@ -47,11 +61,11 @@
   <body>
     <div class="center">
       <p><img src="/retropage.svg" width="75%" height="75%" alt="RetroPage" /></p>
-      <p id="themeoptions"><strong>Themes: </strong>Light | <a href="/noscript/dark/yahoo">Dark</a></p>
-      <p id="searchoptions"><strong>Search Engines: </strong><a href="/noscript/light/google">Google</a> | <a href="/noscript/light/bing">Bing</a> | Yahoo | <a href="/noscript/light/duckduckgo">DuckDuckGo</a> | <a href="/noscript/light/startpage">StartPage</a> | <a href="/noscript/light/ixquick">Ixquick.eu</a> | <a href="/noscript/light/searx">Searx</a></p>
+      <p id="themeoptions"><strong>Themes: </strong><a href="/noscript/light/ixquick">Light</a> | Dark</p>
+      <p id="searchoptions"><strong>Search Engines: </strong><a href="/noscript/dark/google">Google</a> | <a href="/noscript/dark/bing">Bing</a> | <a href="/noscript/dark/yahoo">Yahoo</a> | <a href="/noscript/dark/duckduckgo">DuckDuckGo</a> | <a href="/noscript/dark/startpage">StartPage</a> | ixquick.eu | <a href="/noscript/dark/searx">Searx</a></p>
        <div class="search">
-        <form name="searchbox" class="search" action="https://search.yahoo.com/search" method="get">
-        <input name="p" id="searchtext" placeholder="Yahoo Search" type="text">
+        <form name="searchbox" class="search" action="https://www.ixquick.eu/do/search" method="get">
+        <input name="query" id="searchtext" placeholder="Ixquick.eu Search" type="text">
         <button value="Search">Search</button>
         </form>
       </div>
