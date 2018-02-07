@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="RetroPage 2.1.2 Changelog">
-    <title>RetroPage 2.2.1 Changelog - RetroPage Blog</title>
+    <title>RetroPage 2.3.0 Changelog - RetroPage Blog</title>
     <link href="/element.css" rel="stylesheet">
     <link href="/blog/blog.css" rel="stylesheet">
     <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png" />
@@ -35,13 +35,18 @@
     </div>
     <p class="blog-title"><a href="/blog">RetroPage Blog</a></p>
     <hr class="blog-heading" />
-    <h1 class="post-title">RetroPage 2.2.1 Changelog</h1>
-    <h2 class="post-subtitle">Retroity &middot; January 12, 2018</h2>
-    <p>This is a minor update for Retropage.  You can find this update's GitHub release <a href="https://github.com/RavengerNetwork/RetroPage/releases/tag/v2.2.1">here.</a></a></p>
+    <h1 class="post-title">RetroPage 2.3.0 Changelog</h1>
+    <h2 class="post-subtitle">Retroity &middot; February 5, 2018</h2>
+    <p>This is a small update for Retropage that changes and adjusts a few things. You can find this update's GitHub release <a href="https://github.com/RavengerNetwork/RetroPage/releases/tag/v2.3.0">here.</a></a></p>
     <p></p>
     <h3>Changes and Improvements</h3>
     <ul>
-      <li>Changed all mentions of 2017 to 2018 in line with the new year.</li>
+      <li>Ixquick.eu is now included as a search engine</li>
+      <li>The footer now displays the current RetroPage version</li>
+      <li>Replaced the "Classic Noscript Version" footer link with "Javascript Version" in the noscript version</li>
+      <li>Due to it no longer being in operation, links to Vidme have been replaced with Amazon Prime Video.</li>
+      <li>Links to Gab.ai have been replaced with Minds.</li>
+      <li>Updated Newgrounds links to use HTTPS, due to it supporting HTTPS now.</li>
     </ul>
     <footer>
       <p>RetroPage 2.3.0</p>

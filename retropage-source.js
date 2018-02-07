@@ -119,6 +119,9 @@ window.onload = function() {
         } else if (savedsearch == "searx") {
             window.location.href = "https://searx.me/?q=" + escape(searchbox.searchtext.value) + "&categories=general";
             return false;
+        } else if (savedsearch == "ixquick") {
+            window.location.href = "https://www.ixquick.eu/do/search?query=" + escape(searchbox.searchtext.value);
+            return false;
         } else if (savedsearch == "custom") {
             window.location.href = savedcustomsearchurl + escape(searchbox.searchtext.value);
             return false;
@@ -153,6 +156,10 @@ window.onload = function() {
         } else if (selectedsearch == "searx") {
             $('input[name="searchtext"]').attr("placeholder", "Searx Search");
             localStorage.setItem("selectedengine", "searx");
+            savedsearch = localStorage.getItem("selectedengine");
+        } else if (selectedsearch == "ixquick") {
+            $('input[name="searchtext"]').attr("placeholder", "Ixquick.eu Search");
+            localStorage.setItem("selectedengine", "ixquick");
             savedsearch = localStorage.getItem("selectedengine");
         } else if (selectedsearch == "custom") {
             localStorage.setItem("selectedengine", "custom");
