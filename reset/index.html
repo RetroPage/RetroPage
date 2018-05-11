@@ -214,41 +214,11 @@
       resetconfirmation.style.display="block";
       resetting.style.display="none";
 
-      function clearlocalstorage() {
-        localStorage.removeItem("darkmodeon");
-        localStorage.removeItem("themestatus");
-        localStorage.removeItem("customjs");
-        localStorage.removeItem("customcss");
-        localStorage.removeItem("customsearchname");
-        localStorage.removeItem("customsearchurl");
-        localStorage.removeItem("selectedengine");
-        localStorage.removeItem("logourl");
-        if (clearredo == 1) {
-          confirmandredirect();
-        } else {
-         null;
-        }
-      }
-
-      function confirmandredirect() {
-        if (localStorage.getItem("darkmodeon") == null && localStorage.getItem("themestatus") == null && localStorage.getItem("customjs") == null && localStorage.getItem("customcss") == null && localStorage.getItem("customsearchname") == null && localStorage.getItem("customsearchurl") == null && localStorage.getItem("selectedengine") == null && localStorage.getItem("logourl") == null) {
-          setTimeout(function(){
-            window.location.href = "/";
-          }, 500);
-        } else {
-          setTimeout(function(){
-            console.error("RETROPAGE ERROR: A localStorage item still exists for some reason, retrying localStorage clear...")
-            clearredo = 1;
-            clearlocalstorage();
-          }, 500);
-        }
-      }
-
       resetbutton.onclick = function() {
         resetconfirmation.style.display="none";
         resetting.style.display="block";
-        clearlocalstorage();
-        confirmandredirect();
+        localStorage.clear();
+        window.location.href = "/";
       }
 
       cancelbutton.onclick = function() {
