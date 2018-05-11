@@ -28,6 +28,14 @@
         -ms-filter: drop-shadow(0px 2px 0px #000);
         filter: drop-shadow(0px 2px 0px #000 );
       }
+      #error {
+        fill: #D50000;
+        -webkit-filter: drop-shadow(0px 3px 0px #000);
+        -moz-filter: drop-shadow(0px 3px 0px #000);
+        -o-filter: drop-shadow(0px 3px 0px #000);
+        -ms-filter: drop-shadow(0px 3px 0px #000);
+        filter: drop-shadow(0px 3px 0px #000 );
+      }
       #security-continue {
         border: 2px solid #D50000;
         color: black;
@@ -75,6 +83,7 @@
         <h1>RetroPage.co to RetroPage.net Data Transfer</h1>
     </div>
     <div id="noscripterr" class="center" style="display: none;">
+    <svg x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 125;" xml:space="preserve" width="20%" height="20%" class="center" id="error"><g><g><polygon points="90.1,22.2 62.8,50 90.1,77.8 75.9,91.8 48.8,64.3 21.8,91.8 7.5,77.8 34.8,50 7.5,22.2 21.8,8.2 48.8,35.7 75.9,8.2"/></g></g></svg>
       <h4 style="margin-top: 0;"><strong style="color: red;">ERROR:</strong> Javascript is not enabled. Please enable it in order to the data transfer to work.</h4>
     </div>
     <div id="securityalert" style="display: none;" class="center">
@@ -82,8 +91,8 @@
       <h4 style="margin-top: 0;"><strong style="color: red;">WARNING:</strong> This page is designed to allow data to be transferred from RetroPage.co to RetroPage.net. You are attempting to perform a data transfer from <span id="referrer-domain"></span>. This may be a security risk. Please make sure you can trust what is being imported. Continue?</h4>
       <button id="security-continue">Do Import Anyway</button>
     </div>
-    <div id="nodataerr" style="display: none;" class="center"><h4 style="margin-top: 0;"><strong style="color: red;">ERROR:</strong> Could not find any data to import.</h4></div>
-    <div id="baddataerr" style="display: none;" class="center"><h4 style="margin-top: 0;"><strong style="color: red;">ERROR:</strong> The data that you are attempting to import is invalid.</h4></div>
+    <div id="nodataerr" style="display: none;" class="center"><svg x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 125;" xml:space="preserve" width="20%" height="20%" class="center" id="error"><g><g><polygon points="90.1,22.2 62.8,50 90.1,77.8 75.9,91.8 48.8,64.3 21.8,91.8 7.5,77.8 34.8,50 7.5,22.2 21.8,8.2 48.8,35.7 75.9,8.2"/></g></g></svg><h4 style="margin-top: 0;"><strong style="color: red;">ERROR:</strong> Could not find any data to import.</h4></div>
+    <div id="baddataerr" style="display: none;" class="center"><svg x="0px" y="0px" viewBox="0 0 100 125" style="enable-background:new 0 0 100 125;" xml:space="preserve" width="20%" height="20%" class="center" id="error"><g><g><polygon points="90.1,22.2 62.8,50 90.1,77.8 75.9,91.8 48.8,64.3 21.8,91.8 7.5,77.8 34.8,50 7.5,22.2 21.8,8.2 48.8,35.7 75.9,8.2"/></g></g></svg><h4 style="margin-top: 0;"><strong style="color: red;">ERROR:</strong> The data that you are attempting to import is invalid.</h4></div>
     <footer>
         <p>&copy; <a href="https://ravenger.net">Ravenger.</a></p>
         <p><a href="https://github.com/RavengerNetwork/RetroPage">Source Code</a> - <a href="/noscript">Noscript "Classic" Version</a> - <a href="/blog">Blog</a> - <a href="/license">License</a></p>
