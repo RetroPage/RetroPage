@@ -1,3 +1,4 @@
+// @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&dn=expat.txt Expat
 window.onload = function() {
   var baddataerr = document.getElementById("baddataerr");
   var nodataerr = document.getElementById("nodataerr");
@@ -87,3 +88,4 @@ window.onload = function() {
     return false;
   }
 };
+// @license-end
