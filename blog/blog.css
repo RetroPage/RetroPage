@@ -61,3 +61,8 @@ video {
  height: auto;
  width: 100%;
 }
+
+.element footer {
+  background-color: #212121!important;
+  color: #FFFFFF!important;
+}
