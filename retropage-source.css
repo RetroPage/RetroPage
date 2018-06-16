@@ -11,6 +11,7 @@
 }
 #submitsearch {
     vertical-align: middle;
+    fill: #FFFFFF;
 }
 form.searchbox input[type="submit"] {
     visibility: collapse;
@@ -199,7 +200,20 @@ screen and (max-width: 430px) {
     user-select: none;
 }
 #searchtext {
-    width: 80%!important;
+    width: 87%!important;
+    max-width: 87%!important;
+    background-color: transparent;
+    color: white;
+    border: 0px solid transparent!important;
+    box-shadow: none!important;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+#searchbox {
+    background-color: #424242;
+    padding: 8px;
+    border-radius: 2em;
+    max-width: 100%!important;
 }
 .kbd {
     font-family: 'courier new', fixed;
