@@ -2,10 +2,6 @@ body {
     background-color: #000000;
     color: #FFFFFF;
 }
-footer {
-    background-color: #282828!important;
-    color: #636c72!important;
-}
 .modal-header,
 .modal-content p {
     color: #FFFFFF;
