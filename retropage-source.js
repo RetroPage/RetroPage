@@ -229,6 +229,13 @@ window.onload = function() {
         }
     };
 
+    //close options menu if clicked outside
+    window.addEventListener('click', function(e){
+        if (!document.getElementById('options-content').contains(e.target) && !document.getElementById('optionsbtn').contains(e.target)){
+          document.getElementById('options-box').style.display = "none";
+          optionsopen = 0;
+    }})
+
     //Turn dark theme on/off upon dark theme button being clicked
     function toggledark() {
         if (darkstatus === 0) {

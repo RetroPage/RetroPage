@@ -24,7 +24,7 @@
         width: 100%;
         text-align: center;
         font-size: 1em;
-        border-radius: 4px!important;
+        border-radius: 2em!important;
         transition: background-color 0.5s, color 0.5s;
         margin-bottom: 0px!important;
       }
@@ -46,6 +46,7 @@
       #button-reset:hover {
         background-color: #D50000!important;
         color: white!important;
+        cursor: pointer;
       }
       #button-reset:active {
        background-color: #960000!important;
@@ -57,6 +58,7 @@
       #button-cancel:hover {
         background-color: #616161!important;
         color: white;
+        cursor: pointer;
       }
       #button-cancel:active {
         background-color: #282828!important;
@@ -200,9 +202,9 @@
       <button id="button-cancel">Cancel</button>
     </div>
       <footer>
-        <p>RetroPage 2.3.0</p>
+        <p>RetroPage 2.4.0</p>
         <p>&copy; <a href="https://ravenger.net">Ravenger 2018.</a></p>
-        <p><a href="https://github.com/RavengerGaming/RetroPage">Source Code</a> - <a href="/noscript">Noscript "Classic" Version</a> - <a href="/blog">Blog</a> - <a href="/license">License</a></p>
+        <p><a href="https://github.com/RetroPage/RetroPage">Source Code</a> - <a href="/noscript">Noscript "Classic" Version</a> - <a href="/blog">Blog</a> - <a href="/license">License</a></p>
       </footer>
       <script>
       var resetconfirmation = document.getElementById("resetconfirmation");
@@ -214,41 +216,11 @@
       resetconfirmation.style.display="block";
       resetting.style.display="none";
 
-      function clearlocalstorage() {
-        localStorage.removeItem("darkmodeon");
-        localStorage.removeItem("themestatus");
-        localStorage.removeItem("customjs");
-        localStorage.removeItem("customcss");
-        localStorage.removeItem("customsearchname");
-        localStorage.removeItem("customsearchurl");
-        localStorage.removeItem("selectedengine");
-        localStorage.removeItem("logourl");
-        if (clearredo == 1) {
-          confirmandredirect();
-        } else {
-         null;
-        }
-      }
-
-      function confirmandredirect() {
-        if (localStorage.getItem("darkmodeon") == null && localStorage.getItem("themestatus") == null && localStorage.getItem("customjs") == null && localStorage.getItem("customcss") == null && localStorage.getItem("customsearchname") == null && localStorage.getItem("customsearchurl") == null && localStorage.getItem("selectedengine") == null && localStorage.getItem("logourl") == null) {
-          setTimeout(function(){
-            window.location.href = "/";
-          }, 500);
-        } else {
-          setTimeout(function(){
-            console.error("RETROPAGE ERROR: A localStorage item still exists for some reason, retrying localStorage clear...")
-            clearredo = 1;
-            clearlocalstorage();
-          }, 500);
-        }
-      }
-
       resetbutton.onclick = function() {
         resetconfirmation.style.display="none";
         resetting.style.display="block";
-        clearlocalstorage();
-        confirmandredirect();
+        localStorage.clear();
+        window.location.href = "/";
       }
 
       cancelbutton.onclick = function() {

@@ -11,6 +11,7 @@
 }
 #submitsearch {
     vertical-align: middle;
+    fill: #FFFFFF;
 }
 form.searchbox input[type="submit"] {
     visibility: collapse;
@@ -90,7 +91,7 @@ form.searchbox input[type="submit"] {
     margin-top: 16px;
     height: auto;
     overflow: hidden;
-    border-radius: 4px;
+    border-radius: 1em;
     animation-name: modal-enter;
     animation-duration: 0.3s;
     -webkit-animation-name: modal-enter;
@@ -199,7 +200,23 @@ screen and (max-width: 430px) {
     user-select: none;
 }
 #searchtext {
-    width: 80%!important;
+    width: 87%!important;
+    max-width: 87%!important;
+    background-color: transparent;
+    color: white;
+    border: 0px solid transparent!important;
+    box-shadow: none!important;
+    font-weight: 600;
+    font-size: 1.2em;
+}
+#searchtext::placeholder {
+    color: #BDBDBD;
+}
+#searchbox {
+    background-color: #424242;
+    padding: 8px;
+    border-radius: 2em;
+    max-width: 100%!important;
 }
 .kbd {
     font-family: 'courier new', fixed;
@@ -221,7 +238,7 @@ screen and (max-width: 430px) {
     width: 48%;
     text-align: center;
     font-size: 1em;
-    border-radius: 4px!important;
+    border-radius: 2em!important;
     transition: background-color 0.2s, color 0.2s;
     margin-bottom: 6px!important;
     border: 2px solid #0078e7!important;
@@ -241,7 +258,7 @@ screen and (max-width: 430px) {
     width: 48%;
     text-align: center;
     font-size: 1em;
-    border-radius: 4px!important;
+    border-radius: 2em!important;
     transition: background-color 0.2s, color 0.2s;
     margin-bottom: 6px!important;
     border: 2px solid #616161!important;
@@ -265,4 +282,17 @@ screen and (max-width: 430px) {
     margin-bottom: .3em;
     display: block;
     text-align: center;
+}
+
+textarea, input {
+    border-radius: .5em!important;
+}
+
+textarea::placeholder, input::placeholder {
+    color: #616161;
+}
+
+.element footer {
+    background-color: #212121!important;
+    color: #FFFFFF!important;
 }
