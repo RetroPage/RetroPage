@@ -295,4 +295,5 @@ textarea::placeholder, input::placeholder {
 .element footer {
     background-color: #212121!important;
     color: #FFFFFF!important;
+    border-radius: 2em 2em 0 0;
 }
