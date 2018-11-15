@@ -13,6 +13,9 @@
     vertical-align: middle;
     fill: #FFFFFF;
 }
+#submitsearch:hover {
+    cursor: pointer    
+}
 form.searchbox input[type="submit"] {
     visibility: collapse;
 }
