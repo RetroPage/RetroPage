@@ -59,6 +59,8 @@ window.onload = function() {
     var darkstatus = localStorage.getItem('themestatus');
     var savedsearch = localStorage.getItem('selectedengine');
     var customsearchset = localStorage.getItem('customsearchset');
+    var autocompletebox = document.getElementById('autocomplete');
+    var autocomplete = localStorage.getItem('autocomplete');
     var optionsopen = 0;
     var cssmodalopen = 0;
     var jsmodalopen = 0;
@@ -76,7 +78,8 @@ window.onload = function() {
         'customsearchurl': localStorage.getItem('customsearchurl'),
         'logourl': localStorage.getItem('logourl'),
         'selectedengine': localStorage.getItem('selectedengine'),
-        'themestatus': localStorage.getItem('themestatus')
+        'themestatus': localStorage.getItem('themestatus'),
+        'autofillon': localStorage.getItem('autocomplete')
     };
 
     function closeall() {
@@ -559,6 +562,11 @@ window.onload = function() {
             } else {
                 null;
             }
+            if (parsedimport.autofillon !== null) {
+                localStorage.setItem("autocomplete", parsedimport.autofillon);
+            } else {
+                null;
+            }
             importconfirm();
             return false;
         } catch (e) {
@@ -595,7 +603,8 @@ window.onload = function() {
             'customsearchurl': localStorage.getItem('customsearchurl'),
             'logourl': localStorage.getItem('logourl'),
             'selectedengine': localStorage.getItem('selectedengine'),
-            'themestatus': localStorage.getItem('themestatus')
+            'themestatus': localStorage.getItem('themestatus'),
+            'autofillon': localStorage.getItem('autocomplete')
         };
         document.getElementById("exportdata").value = JSON.stringify(exportObject);
     }
@@ -635,6 +644,8 @@ window.onload = function() {
             e.preventDefault();
             e.stopPropagation();
             openkbdmodal();
+        } else if (e.ctrlKey && e.altKey && e.which == 65) {
+            autocompleteswitch();
         } else if (e.ctrlKey && e.altKey && e.which == 88) {
             e.preventDefault();
             e.stopPropagation();
@@ -654,6 +665,50 @@ window.onload = function() {
                 value.substring(end));
             this.selectionStart = this.selectionEnd = start + 1;
             e.preventDefault();
+        }
+    });
+    
+    //check if search autocomplete option is set and if not set it
+    if (localStorage.getItem("autocomplete") == null) {
+        localStorage.setItem("autocomplete", "1");
+        console.warn("autocomplete localstorage not set, setting it to 1");
+        $("#autocomplete").prop( "checked", true );
+        $("#searchtext").prop( "autocomplete", "on" );
+    } else {
+        null;
+    }
+    
+    //on page load, if Autocomplete is set it 1, check box and turn autocomplete on, otherwise disable it
+    if (autocomplete == 1) {
+        console.warn("trying to turn on autocomplete box")
+        $("#autocomplete").prop( "checked", true );
+        $("#searchtext").prop( "autocomplete", "on" );
+    } else {
+        null;
+        $("#searchtext").prop( "autocomplete", "off" );
+    }
+    
+    //function to change autocomplete (for keyboard shortcut)
+    function autocompleteswitch() {
+        if (autocomplete == 1 || autocompletebox.checked == true) { 
+            localStorage.setItem("autocomplete", 0);
+            $("#searchtext").prop( "autocomplete", "off" );
+            $("#autocomplete").prop( "checked", false);
+        } else if (autocomplete == 0 || autocompletebox.checked == false) {
+            localStorage.setItem("autocomplete", 1);
+            $("#searchtext").prop( "autocomplete", "on" );
+            $("#autocomplete").prop( "checked", true);
+        }
+    }
+    
+    //change checkbox on check
+    $("#autocomplete").change(function() {
+        if(this.checked) {
+            localStorage.setItem("autocomplete", 1);
+            $("#searchtext").prop( "autocomplete", "on" );
+        } else {
+            localStorage.setItem("autocomplete", 0);
+            $("#searchtext").prop( "autocomplete", "off" );
         }
     });
 };
