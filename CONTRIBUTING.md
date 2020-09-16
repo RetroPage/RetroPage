@@ -26,5 +26,5 @@ First, commit an edit the source version with the changes you want to make. Then
 * Before submitting a pull request, please ensure that even with the changes you made, when loading any page on RetroPage, the total size of that page and all of the resources it loads is under 80 kilobytes in size. The only exception to this is posts on the blog, which can be up to 800 KB.
 * Please **do not** directly edit any files named "element.css"
 * No external non self-hosted resources, such as those from a CDN.
-##License
+## License
 By contributing code to RetroPage, you agree that your code will be licensed under the [MIT Expat License](LICENSE).
