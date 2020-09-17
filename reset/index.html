@@ -1,234 +1,244 @@
 <!DOCTYPE html>
 <html lang="en" class="element">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Clear RetroPage">
-    <title>Reset - RetroPage</title>
-    <link rel="stylesheet" href="/element.css">
-    <style>
-      .center {
-        text-align: center;
-        display: block;
-        margin: auto;
-      }
-      .red {
-        color: #D50000;
-      }
-      .no-bottom-border {
-       border-bottom: 0!important;
-      }
-      button {
-        background-color: Transparent!important;
-        width: 100%;
-        text-align: center;
-        font-size: 1em;
-        border-radius: 2em!important;
-        transition: background-color 0.5s, color 0.5s;
-        margin-bottom: 0px!important;
-      }
-      hr {
-       background-color: #000000!important;
-      }
-      #warning {
-        fill: #F9A825;
-        -webkit-filter: drop-shadow(0px 2px 0px #000);
-        -moz-filter: drop-shadow(0px 2px 0px #000);
-        -o-filter: drop-shadow(0px 2px 0px #000);
-        -ms-filter: drop-shadow(0px 2px 0px #000);
-        filter: drop-shadow(0px 2px 0px #000 );
-      }
-      #button-reset {
-        border: 2px solid #D50000;
-        color: black;
-      }
-      #button-reset:hover {
-        background-color: #D50000!important;
-        color: white!important;
-        cursor: pointer;
-      }
-      #button-reset:active {
-       background-color: #960000!important;
-      }
-      #button-cancel {
-        border: 2px solid #616161;
-        color: black;
-      }
-      #button-cancel:hover {
-        background-color: #616161!important;
-        color: white;
-        cursor: pointer;
-      }
-      #button-cancel:active {
-        background-color: #282828!important;
-      }
-      .element footer {
-          background-color: #212121!important;
-          color: #FFFFFF!important;
-      }
-      /* Loading Animation by @lukehaas*/
-      .loader {
-      margin: 100px auto;
-      font-size: 25px;
-      width: 1em;
-      height: 1em;
-      border-radius: 50%;
-      position: relative;
-      text-indent: -9999em;
-      -webkit-animation: load5 1.1s infinite ease;
-      animation: load5 1.1s infinite ease;
-      -webkit-transform: translateZ(0);
-      -ms-transform: translateZ(0);
-      transform: translateZ(0);
-    }
-      @-webkit-keyframes load5 {
-        0%,
-        100% {
-          box-shadow: 0em -2.6em 0em 0em #0078e7, 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.5), -1.8em -1.8em 0 0em rgba(0,120,231, 0.7);
-        }
-        12.5% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.7), 1.8em -1.8em 0 0em #0078e7, 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.5);
-        }
-        25% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.5), 1.8em -1.8em 0 0em rgba(0,120,231, 0.7), 2.5em 0em 0 0em #0078e7, 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
-        }
-        37.5% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.5), 2.5em 0em 0 0em rgba(0,120,231, 0.7), 1.75em 1.75em 0 0em #0078e7, 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
-        }
-        50% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.5), 1.75em 1.75em 0 0em rgba(0,120,231, 0.7), 0em 2.5em 0 0em #0078e7, -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
-        }
-        62.5% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.5), 0em 2.5em 0 0em rgba(0,120,231, 0.7), -1.8em 1.8em 0 0em #0078e7, -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
-        }
-        75% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.5), -1.8em 1.8em 0 0em rgba(0,120,231, 0.7), -2.6em 0em 0 0em #0078e7, -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
-        }
-        87.5% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.5), -2.6em 0em 0 0em rgba(0,120,231, 0.7), -1.8em -1.8em 0 0em #0078e7;
-        }
-      }
-      @keyframes load5 {
-        0%,
-        100% {
-          box-shadow: 0em -2.6em 0em 0em #0078e7, 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.5), -1.8em -1.8em 0 0em rgba(0,120,231, 0.7);
-        }
-        12.5% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.7), 1.8em -1.8em 0 0em #0078e7, 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.5);
-        }
-        25% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.5), 1.8em -1.8em 0 0em rgba(0,120,231, 0.7), 2.5em 0em 0 0em #0078e7, 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
-        }
-        37.5% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.5), 2.5em 0em 0 0em rgba(0,120,231, 0.7), 1.75em 1.75em 0 0em #0078e7, 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
-        }
-        50% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.5), 1.75em 1.75em 0 0em rgba(0,120,231, 0.7), 0em 2.5em 0 0em #0078e7, -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
-        }
-        62.5% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.5), 0em 2.5em 0 0em rgba(0,120,231, 0.7), -1.8em 1.8em 0 0em #0078e7, -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
-        }
-        75% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.5), -1.8em 1.8em 0 0em rgba(0,120,231, 0.7), -2.6em 0em 0 0em #0078e7, -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
-        }
-        87.5% {
-          box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.5), -2.6em 0em 0 0em rgba(0,120,231, 0.7), -1.8em -1.8em 0 0em #0078e7;
-        }
-      }
-    </style>
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/apple-touch-icon-76x76.png" />
-    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152.png" />
-    <link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196" />
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
-    <link rel="icon" type="image/png" href="/favicon-128.png" sizes="128x128" />
-    <meta name="application-name" content="&nbsp;"/>
-    <meta name="msapplication-TileColor" content="#FFFFFF" />
-    <meta name="msapplication-TileImage" content="/mstile-144x144.png" />
-    <meta name="msapplication-square70x70logo" content="/mstile-70x70.png" />
-    <meta name="msapplication-square150x150logo" content="/mstile-150x150.png" />
-    <meta name="msapplication-wide310x150logo" content="/mstile-310x150.png" />
-    <meta name="msapplication-square310x310logo" content="/mstile-310x310.png" />
-    <script>
-    /*
-    @licstart  The following is the entire license notice for the
-    JavaScript code in this page.
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="Clear RetroPage" />
+		<title>Reset - RetroPage</title>
+		<link rel="stylesheet" href="/element.css" />
+		<style>
+			  .center {
+			    text-align: center;
+			    display: block;
+			    margin: auto;
+			  }
+			  .red {
+			    color: #D50000;
+			  }
+			  .no-bottom-border {
+			   border-bottom: 0!important;
+			  }
+			  button {
+			    background-color: Transparent!important;
+			    width: 100%;
+			    text-align: center;
+			    font-size: 1em;
+			    border-radius: 2em!important;
+			    transition: background-color 0.5s, color 0.5s;
+			    margin-bottom: 0px!important;
+			  }
+			  hr {
+			   background-color: #000000!important;
+			  }
+			  #warning {
+			    fill: #F9A825;
+			    -webkit-filter: drop-shadow(0px 2px 0px #000);
+			    -moz-filter: drop-shadow(0px 2px 0px #000);
+			    -o-filter: drop-shadow(0px 2px 0px #000);
+			    -ms-filter: drop-shadow(0px 2px 0px #000);
+			    filter: drop-shadow(0px 2px 0px #000 );
+			  }
+			  #button-reset {
+			    border: 2px solid #D50000;
+			    color: black;
+			  }
+			  #button-reset:hover {
+			    background-color: #D50000!important;
+			    color: white!important;
+			    cursor: pointer;
+			  }
+			  #button-reset:active {
+			   background-color: #960000!important;
+			  }
+			  #button-cancel {
+			    border: 2px solid #616161;
+			    color: black;
+			  }
+			  #button-cancel:hover {
+			    background-color: #616161!important;
+			    color: white;
+			    cursor: pointer;
+			  }
+			  #button-cancel:active {
+			    background-color: #282828!important;
+			  }
+			  .element footer {
+			      background-color: #212121!important;
+			      color: #FFFFFF!important;
+			  }
+			  /* Loading Animation by @lukehaas*/
+			  .loader {
+			  margin: 100px auto;
+			  font-size: 25px;
+			  width: 1em;
+			  height: 1em;
+			  border-radius: 50%;
+			  position: relative;
+			  text-indent: -9999em;
+			  -webkit-animation: load5 1.1s infinite ease;
+			  animation: load5 1.1s infinite ease;
+			  -webkit-transform: translateZ(0);
+			  -ms-transform: translateZ(0);
+			  transform: translateZ(0);
+			}
+			  @-webkit-keyframes load5 {
+			    0%,
+			    100% {
+			      box-shadow: 0em -2.6em 0em 0em #0078e7, 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.5), -1.8em -1.8em 0 0em rgba(0,120,231, 0.7);
+			    }
+			    12.5% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.7), 1.8em -1.8em 0 0em #0078e7, 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.5);
+			    }
+			    25% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.5), 1.8em -1.8em 0 0em rgba(0,120,231, 0.7), 2.5em 0em 0 0em #0078e7, 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
+			    }
+			    37.5% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.5), 2.5em 0em 0 0em rgba(0,120,231, 0.7), 1.75em 1.75em 0 0em #0078e7, 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
+			    }
+			    50% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.5), 1.75em 1.75em 0 0em rgba(0,120,231, 0.7), 0em 2.5em 0 0em #0078e7, -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
+			    }
+			    62.5% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.5), 0em 2.5em 0 0em rgba(0,120,231, 0.7), -1.8em 1.8em 0 0em #0078e7, -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
+			    }
+			    75% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.5), -1.8em 1.8em 0 0em rgba(0,120,231, 0.7), -2.6em 0em 0 0em #0078e7, -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
+			    }
+			    87.5% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.5), -2.6em 0em 0 0em rgba(0,120,231, 0.7), -1.8em -1.8em 0 0em #0078e7;
+			    }
+			  }
+			  @keyframes load5 {
+			    0%,
+			    100% {
+			      box-shadow: 0em -2.6em 0em 0em #0078e7, 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.5), -1.8em -1.8em 0 0em rgba(0,120,231, 0.7);
+			    }
+			    12.5% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.7), 1.8em -1.8em 0 0em #0078e7, 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.5);
+			    }
+			    25% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.5), 1.8em -1.8em 0 0em rgba(0,120,231, 0.7), 2.5em 0em 0 0em #0078e7, 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
+			    }
+			    37.5% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.5), 2.5em 0em 0 0em rgba(0,120,231, 0.7), 1.75em 1.75em 0 0em #0078e7, 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
+			    }
+			    50% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.5), 1.75em 1.75em 0 0em rgba(0,120,231, 0.7), 0em 2.5em 0 0em #0078e7, -1.8em 1.8em 0 0em rgba(0,120,231, 0.2), -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
+			    }
+			    62.5% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.5), 0em 2.5em 0 0em rgba(0,120,231, 0.7), -1.8em 1.8em 0 0em #0078e7, -2.6em 0em 0 0em rgba(0,120,231, 0.2), -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
+			    }
+			    75% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.5), -1.8em 1.8em 0 0em rgba(0,120,231, 0.7), -2.6em 0em 0 0em #0078e7, -1.8em -1.8em 0 0em rgba(0,120,231, 0.2);
+			    }
+			    87.5% {
+			      box-shadow: 0em -2.6em 0em 0em rgba(0,120,231, 0.2), 1.8em -1.8em 0 0em rgba(0,120,231, 0.2), 2.5em 0em 0 0em rgba(0,120,231, 0.2), 1.75em 1.75em 0 0em rgba(0,120,231, 0.2), 0em 2.5em 0 0em rgba(0,120,231, 0.2), -1.8em 1.8em 0 0em rgba(0,120,231, 0.5), -2.6em 0em 0 0em rgba(0,120,231, 0.7), -1.8em -1.8em 0 0em #0078e7;
+			    }
+			  }
+		</style>
+		<link rel="apple-touch-icon-precomposed" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch-icon-60x60.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+		<link rel="apple-touch-icon-precomposed" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+		<link rel="icon" type="image/png" href="/favicon-196x196.png" sizes="196x196" />
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32" />
+		<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16" />
+		<link rel="icon" type="image/png" href="/favicon-128.png" sizes="128x128" />
+		<meta name="application-name" content="&nbsp;" />
+		<meta name="msapplication-TileColor" content="#FFFFFF" />
+		<meta name="msapplication-TileImage" content="/mstile-144x144.png" />
+		<meta name="msapplication-square70x70logo" content="/mstile-70x70.png" />
+		<meta name="msapplication-square150x150logo" content="/mstile-150x150.png" />
+		<meta name="msapplication-wide310x150logo" content="/mstile-310x150.png" />
+		<meta name="msapplication-square310x310logo" content="/mstile-310x310.png" />
+		<script>
+			/*
+			@licstart  The following is the entire license notice for the
+			JavaScript code in this page.
 
-    Copyright (c) 2018 Ravenger <ravengernetwork@gmail.com> (ravenger.net)
+			Copyright (c) 2018 Ravenger <ravengernetwork@gmail.com> (ravenger.net)
 
-    Permission is hereby granted, free of charge, to any person obtaining a copy
-    of this software and associated documentation files (the "Software"), to deal
-    in the Software without restriction, including without limitation the rights
-    to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-    copies of the Software, and to permit persons to whom the Software is
-    furnished to do so, subject to the following conditions:
+			Permission is hereby granted, free of charge, to any person obtaining a copy
+			of this software and associated documentation files (the "Software"), to deal
+			in the Software without restriction, including without limitation the rights
+			to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+			copies of the Software, and to permit persons to whom the Software is
+			furnished to do so, subject to the following conditions:
 
-    The above copyright notice and this permission notice shall be included in all
-    copies or substantial portions of the Software.
+			The above copyright notice and this permission notice shall be included in all
+			copies or substantial portions of the Software.
 
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-    SOFTWARE.
-    @licend  The above is the entire license notice
-    for the JavaScript code in this page.
-    */
-    </script>
-  </head>
-  <body>
-    <div class="center">
-      <p><a href="/"><img src="/retropage.svg" width="75%" height="75%" alt="RetroPage" /></a></p>
-      <hr />
-    </div>
-    <div id="resettingmsg">
-      <div class="loader">Loading...</div>
-      <h2 class="center no-bottom-border">Resetting RetroPage... Please wait...</h2>
-    </div>
-    <div id="resetconfirmation">
-      <svg x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve" width="20%" height="20%" class="center" id="warning"><g><g><path d="M91.128,92.335H8.872c-1.361,0-2.622-0.715-3.321-1.881c-0.7-1.167-0.735-2.617-0.094-3.816L46.585,9.712    c0.674-1.26,1.986-2.047,3.415-2.047s2.741,0.786,3.415,2.047l41.128,76.925c0.641,1.2,0.606,2.649-0.094,3.816    C93.75,91.62,92.489,92.335,91.128,92.335z M15.333,84.591h69.335L50,19.749L15.333,84.591z"></path></g><g><g><path d="M50,63.642c-2.139,0-3.872-1.734-3.872-3.872V44.784c0-2.138,1.733-3.872,3.872-3.872s3.872,1.734,3.872,3.872V59.77     C53.872,61.908,52.139,63.642,50,63.642z"></path></g><g><path d="M49.997,76.782c-1.016,0-2.013-0.416-2.739-1.142c-0.716-0.717-1.133-1.714-1.133-2.73c0-1.026,0.416-2.023,1.133-2.74     c0.726-0.726,1.723-1.132,2.739-1.132c1.026,0,2.023,0.406,2.739,1.132c0.726,0.717,1.132,1.714,1.132,2.74     c0,1.016-0.406,2.013-1.132,2.73C52.02,76.367,51.023,76.782,49.997,76.782z"></path></g></g></g></svg>
-      <p class="center">Here you can reset RetroPage, which will reset all settings to their defaults and clear all user data. A reset is recommended if you wish to start over or something went wrong and you need to reset everything.</p>
+			THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+			IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+			FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+			AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+			LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+			OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+			SOFTWARE.
+			@licend  The above is the entire license notice
+			for the JavaScript code in this page.
+			*/
+		</script>
+	</head>
+	<body>
+		<div class="center">
+			<p>
+				<a href="/"><img src="/retropage.svg" width="75%" height="75%" alt="RetroPage"/></a>
+			</p>
+			<hr />
+		</div>
+		<div id="resettingmsg">
+			<div class="loader">Loading...</div>
+			<h2 class="center no-bottom-border">Resetting RetroPage... Please wait...</h2>
+		</div>
+		<div id="resetconfirmation">
+			<svg x="0px" y="0px" viewBox="0 0 100 125" enable-background="new 0 0 100 100" xml:space="preserve" width="20%" height="20%" class="center" id="warning">
+				<g>
+					<g><path d="M91.128,92.335H8.872c-1.361,0-2.622-0.715-3.321-1.881c-0.7-1.167-0.735-2.617-0.094-3.816L46.585,9.712    c0.674-1.26,1.986-2.047,3.415-2.047s2.741,0.786,3.415,2.047l41.128,76.925c0.641,1.2,0.606,2.649-0.094,3.816    C93.75,91.62,92.489,92.335,91.128,92.335z M15.333,84.591h69.335L50,19.749L15.333,84.591z"></path></g>
+					<g>
+						<g><path d="M50,63.642c-2.139,0-3.872-1.734-3.872-3.872V44.784c0-2.138,1.733-3.872,3.872-3.872s3.872,1.734,3.872,3.872V59.77     C53.872,61.908,52.139,63.642,50,63.642z"></path></g>
+						<g><path d="M49.997,76.782c-1.016,0-2.013-0.416-2.739-1.142c-0.716-0.717-1.133-1.714-1.133-2.73c0-1.026,0.416-2.023,1.133-2.74     c0.726-0.726,1.723-1.132,2.739-1.132c1.026,0,2.023,0.406,2.739,1.132c0.726,0.717,1.132,1.714,1.132,2.74     c0,1.016-0.406,2.013-1.132,2.73C52.02,76.367,51.023,76.782,49.997,76.782z"></path></g>
+					</g>
+				</g>
+			</svg>
+			<p class="center">Here you can reset RetroPage, which will reset all settings to their defaults and clear all user data. A reset is recommended if you wish to start over or something went wrong and you need to reset everything.</p>
 
-      <p class="red center"><strong>WARNING: THIS CANNOT BE UNDONE. ALL USER DATA AND SETTINGS WILL BE LOST.</strong></p>
-      <h3 class="center">Reset all settings and clear user data?</h3>
-      <button id="button-reset">Reset</button>
-      <button id="button-cancel">Cancel</button>
-    </div>
-      <footer>
-        <p>RetroPage 2.4.0</p>
-        <p>&copy; <a href="https://ravenger.net">Ravenger 2018.</a></p>
-        <p><a href="https://github.com/RetroPage/RetroPage">Source Code</a> - <a href="/noscript">Noscript "Classic" Version</a> - <a href="/blog">Blog</a> - <a href="/license">License</a></p>
-      </footer>
-      <script>
-      var resetconfirmation = document.getElementById("resetconfirmation");
-      var resetting = document.getElementById("resettingmsg")
-      var resetbutton = document.getElementById("button-reset");
-      var cancelbutton = document.getElementById("button-cancel");
-      var clearredo = 0;
+			<p class="red center"><strong>WARNING: THIS CANNOT BE UNDONE. ALL USER DATA AND SETTINGS WILL BE LOST.</strong></p>
+			<h3 class="center">Reset all settings and clear user data?</h3>
+			<button id="button-reset">Reset</button>
+			<button id="button-cancel">Cancel</button>
+		</div>
+		<footer>
+			<p>RetroPage 2.6.0</p>
+			<p>&copy; <a href="https://ravenger.net">Ravenger 2020.</a></p>
+			<p><a href="https://github.com/RetroPage/RetroPage">Source Code</a> - <a href="/noscript">Noscript "Classic" Version</a> - <a href="https://blog.retropage.net">Blog</a> - <a href="/license">License</a></p>
+		</footer>
+		<script>
+			var resetconfirmation = document.getElementById("resetconfirmation");
+			var resetting = document.getElementById("resettingmsg")
+			var resetbutton = document.getElementById("button-reset");
+			var cancelbutton = document.getElementById("button-cancel");
+			var clearredo = 0;
 
-      resetconfirmation.style.display="block";
-      resetting.style.display="none";
+			resetconfirmation.style.display="block";
+			resetting.style.display="none";
 
-      resetbutton.onclick = function() {
-        resetconfirmation.style.display="none";
-        resetting.style.display="block";
-        localStorage.clear();
-        window.location.href = "/";
-      }
+			resetbutton.onclick = function() {
+			  resetconfirmation.style.display="none";
+			  resetting.style.display="block";
+			  localStorage.clear();
+			  window.location.href = "/";
+			}
 
-      cancelbutton.onclick = function() {
-        window.location.href = "/";
-      }
-    </script>
-  </body>
+			cancelbutton.onclick = function() {
+			  window.location.href = "/";
+			}
+		</script>
+	</body>
 </html>

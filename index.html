@@ -44,7 +44,7 @@
     @licstart  The following is the entire license notice for the
     JavaScript code in this page.
 
-    Copyright (c) 2018 Ravenger <ravengernetwork@gmail.com> (ravenger.net)
+    Copyright (c) 2020 Ravenger <ravengernetwork@gmail.com> (ravenger.net)
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -106,7 +106,7 @@
         <span class="modal-close" id="logomodalclose">&times;</span>
         <div class="modal-content">
           <h2 class="modal-header">Custom Logo</h2>
-          <p>Here you can apply your own logo in place of the RetroPage one. Only direct image links will work. Recommended image host: <a href="https://mixtape.moe/" target="_blank" rel="noopener noreferrer">MixTape.moe</a></p>
+          <p>Here you can apply your own logo in place of the RetroPage one. Only direct image links will work.</p>
           <p class="modal-error" id="logourlnotvalid">ERROR: Submitted URL is not valid. Please submit a valid URL.</p>
           <form name="customlogo" id="customlogo">
             <input name="searchbox" id="logourl" wrap="hard" placeholder="Logo URL (Direct Links)"></input>
@@ -134,49 +134,6 @@
             <button id="customsearchclear" onclick="return false()" class="button-clear">Clear</button>
             </textarea>
           </form>
-        </div>
-      </div>
-  </div>
-  <div class="modal" id="kbdmodal">
-      <div class="modal-box" id="kbdmodal-box">
-        <span class="modal-close" id="kbdmodalclose">&times;</span>
-        <div class="modal-content" id="kbdmodal-content">
-          <h2 class="modal-header">Keyboard Shortcuts</h2>
-          <p>You can use these keyboard shortcuts to do things faster.</p>
-          <div id="kbd-other">
-            <grid-row>
-              <grid-col>
-                <p><span class="kbd">CTRL + ALT + '</span> - Toggle Dark Mode</p>
-                <p><span class="kbd">CTRL + ALT + ;</span> - Custom CSS</p>
-                <p><span class="kbd">CTRL + ALT + l</span> - Custom Logo</p>
-                <p><span class="kbd">CTRL + ALT + k</span> - Custom Javascript</p>
-                <p><span class="kbd">CTRL + ALT + h</span> - Import/Export Data</p>
-              </grid-col>
-              <grid-col>
-                <p><span class="kbd">CTRL + ALT + j</span> - Set Search Engine</p>
-                <p><span class="kbd">CTRL + ALT + r</span> - Reset RetroPage</p>
-                <p><span class="kbd">CTRL + ALT + s</span> - Show Shortcuts</p>
-                <p><span class="kbd">CTRL + ALT + x</span> - Close Menu</p>
-              </grid-col>
-            </grid-row>
-          </div>
-          <div id="kbd-mac">
-            <grid-row>
-              <grid-col>
-                <p><span class="kbd">Control ⌃ + &#x2325; + '</span> - Toggle Dark Mode</p>
-                <p><span class="kbd">Control ⌃ + &#x2325; + ;</span> - Custom CSS</p>
-                <p><span class="kbd">Control ⌃ + &#x2325; + l</span> - Custom Logo</p>
-                <p><span class="kbd">Control ⌃ + &#x2325; + k</span> - Custom JavaScript</p>
-                <p><span class="kbd">Control ⌃ + &#x2325; + k</span> - Import/Export Data</p>
-              </grid-col>
-              <grid-col>
-                <p><span class="kbd">Control ⌃ + &#x2325; + j</span> - Set Search Engine</p>
-                <p><span class="kbd">Control ⌃ + &#x2325; + r</span> - Reset RetroPage</p>
-                <p><span class="kbd">Control ⌃ + &#x2325; + s</span> - Show Shortcuts</p>
-                <p><span class="kbd">Control ⌃ + &#x2325; + x</span> - Close Menu</p>
-              </grid-col>
-            </grid-row>
-          </div>
         </div>
       </div>
   </div>
@@ -224,16 +181,14 @@
                     <option value="bing">Bing</option>
                     <option value="yahoo">Yahoo</option>
                     <option value="ddg">DuckDuckGo</option>
+                    <option value="ecosia">Ecosia</option>
                     <option value="startpage">StartPage</option>
-                    <option value="ixquick">Ixquick.eu</option>
-                    <option value="searx">Searx</option>
                   </select>
                 </span>
                 <a id="opencssmodal">Custom CSS</a>
                 <a id="openjsmodal">Custom JavaScript</a>
                 <a id="openlogomodal">Custom Logo</a>
                 <a id="opensearchmodal">Custom Search Engine</a>
-                <a id="openkbdmodal">Keyboard Shortcuts</a>
                 <a id="openexportmodal">Import/Export</a>
               </div>
               <span style="margin-left: auto; margin-right: auto;text-align: center;display: block;/*! margin-top: 0.25em; */"> <input type="checkbox" id="autocomplete" data-com.bitwarden.browser.user-edited="yes">Search Autocomplete</span>
@@ -248,8 +203,6 @@
           <input name="searchtext" id="searchtext" type="text">
           <svg name="SubmitSearch" id="submitsearch" width="24" height="24" type="submit" viewBox="0 0 24 24"><path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" /></svg>
           </form>
-        <p><a href="https://www.vote.org"><strong>Register to vote here!</strong></a></p>
-        <p><strong class="red">COVID-19:</strong> <a href="https://www.who.int/emergencies/diseases/novel-coronavirus-2019">Get the latest info here</a></p>
       </div>
       <grid-row class="center">
         <grid-col>
@@ -276,13 +229,13 @@
           <p><a href="https://telegram.org">Telegram</a></p>
           <p><a href="https://line.me">LINE</a></p>
           <p><a href="https://wire.com">Wire</a></p>
-          <p><a href="https://about.riot.im">Riot.im</a></p>
+          <p><a href="https://element.io">Element</a></p>
         </grid-col>
         <grid-col>
           <h3>Entertainment</h3>
           <p><a href="https://www.youtube.com">YouTube</a></p>
           <p><a href="https://www.primevideo.com">Amazon Prime Video</a></p>
-          <p><a href="https://synchtu.be">Synchtube</a></p>
+          <p><a href="https://cytu.be">Cytube</a></p>
           <p><a href="https://www.netflix.com">Netflix</a></p>
           <p><a href="https://www.hulu.com">Hulu</a></p>
           <p><a href="https://www.newgrounds.com">Newgrounds</a></p>
@@ -300,21 +253,21 @@
           <p><a href="https://imgur.com">Imgur</a></p>
           <p><a href="https://www.pinterest.com">Pinterest</a></p>
           <p><a href="https://www.instagram.com">Instagram</a></p>
-          <p><a href="https://medium.com">Medium</a></p>
+          <p><a href="https://www.tiktok.com">TikTok</a></p>
           <p><a href="https://www.linkedin.com">Linkedin</a></p>
-          <p><a href="https://joinmastodon.org">Mastodon</a></p>
+          <p><a href="https://www.pillowfort.social">Pillowfort</a></p>
         </grid-col>
         <grid-col>
-          <h3>Tech</h3>
-          <p><a href="https://www.reddit.com/r/technology">/r/Technology</a></p>
+          <h3>Tech News</h3>
+          <p><a href="https://news.ycombinator.com">Hacker News</a></p>
           <p><a href="https://www.macrumors.com">MacRumors</a></p>
           <p><a href="https://www.techdirt.com">Techdirt</a></p>
           <p><a href="https://www.theverge.com">The Verge</a></p>
-          <p><a href="http://www.androidpolice.com">Android Police</a></p>
+          <p><a href="https://techcrunch.com">TechCrunch</a></p>
           <p><a href="https://www.onmsft.com">OnMSFT</a></p>
           <p><a href="https://linustechtips.com">LTT Forums</a></p>
           <p><a href="https://9to5google.com">9To5Google</a></p>
-          <p><a href="https://pcpartpicker.com">PCPartPicker</a></p>
+          <p><a href="https://www.wired.com">WIRED</a></p>
           <p><a href="https://boards.4channel.org/g/">/g/ - Technology</a></p>
         </grid-col>
       </grid-row>
@@ -322,20 +275,21 @@
         <grid-col>
           <h3>Music</h3>
           <p><a href="https://www.spotify.com">Spotify</a></p>
+          <p><a href="https://music.apple.com">Apple Music</a></p>
+          <p><a href="https://music.youtube.com">YouTube Music</a></p>
           <p><a href="https://soundcloud.com">Soundcloud</a></p>
           <p><a href="https://www.pandora.com">Pandora</a></p>
-          <p><a href="https://play.google.com/music/listen">Google Play Music</a></p>
           <p><a href="https://www.amazon.com/gp/dmusic/promotions/PrimeMusic">Amazon Prime Music</a></p>
           <p><a href="https://www.last.fm">Last.fm</a></p>
           <p><a href="https://www.iheart.com">iHeartRadio</a></p>
           <p><a href="https://bandcamp.com">Bandcamp</a></p>
-          <p><a href="https://www.dubtrack.fm">Dubtrack</a></p>
           <p><a href="https://napster.com">Napster</a></p>
         </grid-col>
         <grid-col>
           <h3>Shopping</h3>
           <p><a href="https://amazon.com">Amazon</a></p>
           <p><a href="https://www.ebay.com">eBay</a></p>
+          <p><a href="https://www.facebook.com/marketplace">Facebook Marketplace</a></p>
           <p><a href="https://craigslist.org">Craigslist</a></p>
           <p><a href="https://www.newegg.com">Newegg</a></p>
           <p><a href="https://www.wish.com">Wish</a></p>
@@ -343,20 +297,19 @@
           <p><a href="https://www.etsy.com">Etsy</a></p>
           <p><a href="https://www.walmart.com">Walmart</a></p>
           <p><a href="https://www.rakuten.com/shop">Rakuten</a></p>
-          <p><a href="https://jet.com">Jet.com</a></p>
         </grid-col>
         <grid-col>
           <h3>Gaming</h3>
           <p><a href="http://store.steampowered.com">Steam</a></p>
-          <p><a href="https://www.gog.com">GOG</a></p>
+          <p><a href="https://www.epicgames.com/store">Epic Games Store</a></p>
+          <p><a href="https://www.gog.com">GOG.com</a></p>
           <p><a href="https://www.humblebundle.com">Humble Bundle</a></p>
           <p><a href="https://itch.io">itch.io</a></p>
           <p><a href="https://gamejolt.com">GameJolt</a></p>
-          <p><a href="https://www.twitch.tv">Twitch</a></p>
-          <p><a href="https://mixer.com">Mixer</a></p>
+          <p><a href="https://www.greenmangaming.com">Green Man Gaming</a></p>
+          <p><a href="https://www.chrono.gg">Chrono.gg</a></p>
           <p><a href="https://tcrf.net">Cutting Room Floor</a></p>
-          <p><a href="https://www.epicgames.com/store">Epic Games Store</a></p>
-          <p><a href="http://www.kongregate.com">Kongregate</a></p>
+          <p><a href="https://www.twitch.tv">Twitch</a></p>
         </grid-col>
         <grid-col>
           <h3>Productivity</h3>
@@ -375,20 +328,20 @@
           <h3>Utilities</h3>
           <p><a href="http://www.strawpoll.me">Strawpoll</a></p>
           <p><a href="https://web.archive.org">Wayback Machine</a></p>
-          <p><a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a></p>
-          <p><a href="https://github.com/gorhill/uBlock">uBlock Origin</a></p>
-          <p><a href="https://www.eff.org/privacybadger">Privacy Badger</a></p>
-          <p><a href="https://www.mailinator.com">Mailinator</a></p>
+          <p><a href="https://wetransfer.com">WeTransfer</a></p>
+          <p><a href="https://deepai.org/machine-learning-model/waifu2x">Waifu2x</a></p>
+          <p><a href="https://imagecompressor.com">Optimizilla</a></p>
+          <p><a href="https://relay.firefox.com">Firefox Relay</a></p>
           <p><a href="https://www.random.org">Random.org</a></p>
-          <p><a href="https://goo.gl">goo.gl</a></p>
+          <p><a href="https://www.virustotal.com">VirusTotal</a></p>
           <p><a href="https://ifttt.com">IFTTT</a></p>
           <p><a href="https://translate.google.com">Google Translate</a></p>
         </grid-col>
       </grid-row>
       <footer>
-        <p>RetroPage 2.5.0</p>
-        <p>&copy; <a href="https://ravenger.net">Ravenger 2018.</a></p>
-        <p><a href="https://github.com/RetroPage/RetroPage">Source Code</a> - <a href="/noscript">Noscript "Classic" Version</a> - <a href="/reset">Reset</a> - <a href="/blog">Blog</a> - <a href="/license">License</a></p>
+        <p>RetroPage 2.6.0</p>
+        <p>&copy; <a href="https://ravenger.net">Ravenger 2020.</a></p>
+        <p><a href="https://github.com/RetroPage/RetroPage">Source Code</a> - <a href="/noscript">Noscript "Classic" Version</a> - <a href="/reset">Reset</a> - <a href="https://blog.retropage.net">Blog</a> - <a href="/license">License</a></p>
       </footer>
     </div>
   </body>
