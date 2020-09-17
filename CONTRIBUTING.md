@@ -23,7 +23,7 @@ First, commit an edit the source version with the changes you want to make. Then
 
 ### Other Pull Request Guidelines
 
-* Before submitting a pull request, please ensure that even with the changes you made, when loading any page on RetroPage, the total size of that page and all of the resources it loads is under 80 kilobytes in size. The only exception to this is posts on the blog, which can be up to 800 KB.
+* RetroPage is designed to be very lightweight. Therefore, before submitting a pull request, please ensure that even with the changes you made, when loading any page on RetroPage, the total size of that page and all of the resources it loads is under 150 kilobytes in size. The only exception to this is posts on the blog, which can be up to 800 KB.
 * Please **do not** directly edit any files named "element.css"
 * No external non self-hosted resources, such as those from a CDN.
 ## License
