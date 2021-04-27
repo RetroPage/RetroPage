@@ -97,7 +97,7 @@ window.onload = function() {
 		savedcustomsearchurl = localStorage.getItem('customsearchurl');
 		savedsearch = localStorage.getItem('selectedengine');
 		if (savedsearch == "google") {
-			window.location.href = "https://encrypted.google.com/#q=" + escape(searchbox.searchtext.value);
+			window.location.href = "https://www.google.com/?q=" + escape(searchbox.searchtext.value);
 			return false;
 		} else if (savedsearch == "bing") {
 			window.location.href = "https://www.bing.com/search?q=" + escape(searchbox.searchtext.value);
